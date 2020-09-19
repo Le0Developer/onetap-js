@@ -5,10 +5,10 @@ dump = (object, dept) ->
         type = typeof value
 
         Cheat.Print "  ".repeat(dept) + "- " + key + " (" + type + ")"
-        if(type == "object")
+        if type == "object"
             Cheat.Print ":\n"
             dump value, dept + 1
         else
             Cheat.Print "\n"
 
-dump(this, 0)
+dump this, 0

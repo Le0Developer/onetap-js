@@ -1,6 +1,6 @@
 /*
-Github: https://github.com/le0developer/onetap/blob/master/scripts/dump.coffee
-Automatically generated and compiled on Sat Sep 19 2020 22:49:25 GMT+0200 (Central European Summer Time)
+Github: https://github.com/le0developer/onetap/blob/master/scripts/dump_globals.coffee
+Automatically generated and compiled on Sun Sep 20 2020 00:18:44 GMT+0200 (Central European Summer Time)
 
 MIT License
 
