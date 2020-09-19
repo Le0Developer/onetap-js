@@ -113,6 +113,10 @@ task "minify", "minify all compiled javascripts", (options) ->
         js = path.join path.dirname(coffee), "dist", ((path.basename coffee).slice 0, -(path.extname coffee).length) + ".js"
         min = path.join path.dirname(coffee), "dist", ((path.basename coffee).slice 0, -(path.extname coffee).length) + ".min.js"
 
+        if not fs.existsSync js
+            reporter.fail "Compiled javascript not found #{js}"
+            continue
+
         updated = true
         if fs.existsSync min
             stats_js = fs.statSync js
