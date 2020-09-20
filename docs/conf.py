@@ -47,7 +47,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme = 'alabaster'
 html_theme_options = {
     'github_user': 'le0developer',
-    'github_repo': 'onetap',
+    'github_repo': 'onetap-js',
     'github_banner': True,
     'note_bg': '#FFF59C'
 }
