@@ -13,7 +13,7 @@ g = os.getenv
 
 missing_env = [
     x
-    for x in ('GITHUB_ACTOR', 'GITHUB_TOKEN', 'GITHUB_REPOSITORY', 'REPO_NAME')
+    for x in ('GITHUB_ACTOR', 'GITHUB_TOKEN', 'GITHUB_REPOSITORY')
     if x not in os.environ 
 ]
 
@@ -61,7 +61,7 @@ with tempfile.TemporaryDirectory() as tmp:
    <body>
       <p>Please wait while you're redirected to the <a href="/{}/en/master/">documentation</a>.</p>
    </body>
-</html>'''.format(g('REPO_NAME')))
+</html>'''.format(g('GITHUB_REPOSITORY').split('/')[1]))
 
     r(['git', 'add', '-A'], cwd=str(tmp))
     r(['git', 'commit', '-m', f'deployment of commit {g("GITHUB_REF")}'], cwd=str(tmp))
