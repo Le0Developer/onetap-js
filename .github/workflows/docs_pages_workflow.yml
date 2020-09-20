@@ -17,7 +17,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         apt-get update
-        apt-get install -y git python3
+        apt-get install -y git python3 python3-pip
         python3 -m pip install sphinx
         git clone "https://token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" .
       shell: bash
