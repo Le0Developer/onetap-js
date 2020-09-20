@@ -56,10 +56,10 @@ with tempfile.TemporaryDirectory() as tmp:
 <html>
    <head>
       <title>You are being redirected...</title>
-      <meta http-equiv = "refresh" content="0; url='/en/master/'" />
+      <meta http-equiv = "refresh" content="0; url='/{0}/en/master/'" />
    </head>
    <body>
-      <p>Please wait while you're redirected to the <a href="/{}/en/master/">documentation</a>.</p>
+      <p>Please wait while you're redirected to the <a href="/{0}/en/master/">documentation</a>.</p>
    </body>
 </html>'''.format(g('GITHUB_REPOSITORY').split('/')[1]))
 
