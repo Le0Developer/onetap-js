@@ -358,10 +358,12 @@ World
 .. js:function:: GetMapName()
 
     Returns the current map name.
+
     Examples:
-    - `de_dust2`
-    - `de_mirage`
-    - `cs_office`
+    
+        - `de_dust2`
+        - `de_mirage`
+        - `cs_office`
 
     :returns: Current map name
     :return type: string
