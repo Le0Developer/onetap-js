@@ -4,7 +4,7 @@ Onetap.com Javascript globals
 This tries to cover all javascript globals of the Onetap V3 crack runtime.
 
 All of these globals were collected/extracted with 
-`a script <https://github.com/le0developer/onetap/blob/maaster/javascripts/scripts/dump.coffee>`_ 
+`a script <https://github.com/le0developer/onetap-js/blob/maater/scripts/dump_globals.coffee>`_ 
 and documented by humans.
 
 
