@@ -769,7 +769,8 @@ Event
 .. js:module:: Event
 
 .. note::
-    Can only be used during a `CS:GO Event <callbacks.html#cs-go-events>`_ and a :js:func:`ragebot_fire` callback.
+    Can only be used during a `CS:GO Event <callbacks.html#cs-go-events>`_ 
+    and a `Special Cheat Event <callbacks.html#special-cheat-events>`_.
 
 .. js:function:: GetInt(name)
 
