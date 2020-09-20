@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "coffeescript": "^2.5.1",
+    "uglify-js": "^3.10.4"
+  }
+}

@@ -9,23 +9,35 @@ This mainly focuses on the crack.
 [/docs](<docs>) includes an unofficial documentation about the javascript runtime.
 
 
-## Building
+## Building documentation
+
+Required:
+    - [Python3](https://python.org)
+
+Install dependencies with: *(in [/docs](<docs>))*
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+Build with html documentation with:
+```bash
+make html
+```
 
 
-### Building requirements
+## Building scripts
 
-For building you need:
+Required:
+    - [Node.js](https://nodejs.org)
 
-    - Node.js
-    - Coffeescript
+Install dependencies with:
+```bash
+npm install
+```
 
+Build with:
+```bash
+cake build
+```
 
-### How to build
-
-1. Go with your favorite shell (bash, cmd.exe, ...) into this directory
-2. Execute `cake build` to build all updated scripts
-
-
-#### How add your own scripts
-
-Add the path to your script in `scripts.json`.
+Add scripts by adding the path to [scripts.json](<scripts.json>).

@@ -18,8 +18,8 @@ jobs:
       run: |
         apt-get update
         apt-get install -y git python3 python3-pip
-        python3 -m pip install sphinx
         git clone "https://token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" .
+        python3 -m pip install -r docs/requirements.txt
       shell: bash
  
     - name: Execute script to build our documentation and update pages
