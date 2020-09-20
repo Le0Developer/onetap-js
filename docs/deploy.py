@@ -44,6 +44,9 @@ with tempfile.TemporaryDirectory() as tmp:
     r(['git', 'remote', 'add', 'deploy', f'https://token:{g("GITHUB_TOKEN")}@github.com/{g("GITHUB_REPOSITORY")}.git'], cwd=str(tmp))
     r(['git', 'checkout', '-b', 'gh-pages'], cwd=str(tmp))
 
+    with open(tmp / '.nojekyll', 'w') as f:
+        pass
+
     with open(tmp / 'README.md', 'w') as f:
         f.write('This is an automatically created branch for deployment on github pages.')
     
