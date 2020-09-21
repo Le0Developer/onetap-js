@@ -812,109 +812,112 @@ Entity
 
     Returns all entities with a matching class id.
 
-    :returns: All matching entities
+    :param integer classid: classid
+    :returns: Index of all matching entities
     :return type: integer
 
 .. js:function:: GetPlayers()
 
     Returns all players.
 
-    :returns: All players
-    :return type: Sequence[Entity]
+    :returns: All playerindexes
+    :return type: Sequence[integer]
 
 .. js:function:: GetEnemies()
 
     Returns all players in the enemy team.
 
-    :returns: All enemies
-    :return type: Sequence[Entity]
+    :returns: All enemyindexes
+    :return type: Sequence[integer]
 
 .. js:function:: GetTeammates()
 
     Returns all players your team.
 
-    :returns: All teammates
-    :return type: Sequence[Entity]
+    :returns: All teammateindexes
+    :return type: Sequence[integer]
 
 .. js:function:: GetLocalPlayer()
 
-    Returns yourself.
+    Returns the index of yourself.
 
     :returns: Yourself
-    :return type: Entity
+    :return type: integer
 
-.. js:function:: GetGameRulesProxy(?)
+.. js:function:: GetGameRulesProxy()
 
-    .. warning:: Undocumented function.
+    Returns entityindex of the game rules entity
+    
+    :returns: Entityindex
+    :return type: integer
 
 .. js:function:: GetEntityFromUserID(userid)
 
     Returns the player with the userid.
 
-    :param integer userid: Userid of the player to find
+    :param string userid: Userid of the player to find
     :returns: Player matching the userid
     :return type: Entity
 
-.. js:function:: IsTeammate(entity)
+.. js:function:: IsTeammate(entityindex)
 
     Returns if the entity is a teammate.
 
-    :param Entity entity: Entity to check
+    :param integer entityindex: Entityindex of the entity
     :returns: Entity is a teammate
     :return type: boolean
 
-.. js:function:: IsEnemy(entity)
+.. js:function:: IsEnemy(entityindex)
 
     Returns if the entity is an enemy.
 
-    :param Entity entity: Entity to check
+    :param integer entityindex: Entityindex of the entity
     :returns: Entity is an enemy
     :return type: boolean
 
-.. js:function:: IsBot(entity)
+.. js:function:: IsBot(entityindex)
 
     Returns if the entity is a bot.
 
-    :param Entity entity: Entity to check
+    :param integer entityindex: Entityindex of the entity
     :returns: Entity is a bot
     :return type: boolean
 
-.. js:function:: IsLocalPlayer(entity)
+.. js:function:: IsLocalPlayer(entityindex)
 
-    Returns if the entity is yourself.
+    Returns if the entityindex matches yourself.
 
-    :param Entity entity: Entity to check
+    :param integer entityindex: Entityindex of the entity
     :returns: Entity is yourself
     :return type: boolean
 
-.. js:function:: IsValid(entity)
+.. js:function:: IsValid(entityindex)
 
-    Returns if the entity is valid.
-    No idea what it means though.
+    Returns if the entityindex is valid.
 
-    :param Entity entity: Entity to check
+    :param integer entityindex: Entityindex of the entity
     :returns: Entity is valid
     :return type: boolean
 
-.. js:function:: IsAlive(entity)
+.. js:function:: IsAlive(entityindex)
 
     Returns if the entity is alive.
 
-    :param Entity entity: Entity to check
+    :param integer entityindex: Entityindex of the entity
     :returns: Entity is alive
     :return type: boolean
 
-.. js:function:: IsDormant(entity)
+.. js:function:: IsDormant(entityindex)
 
     Returns if the entity is dormant.
 
-    :param Entity entity: Entity to check
+    :param integer entityindex: Entityindex of the entity
     :returns: Entity is dormant
     :return type: boolean
 
 .. js:function:: GetClassID(entity)
 
-    Returns the class id of the entity.
+    Returns the class id of the class the entity belongs to.
 
     :param Entity entity: Entity to inform about
     :returns: Class id of the entity
@@ -928,76 +931,81 @@ Entity
     :returns: Class name of the entity
     :return type: string
 
-.. js:function:: GetName(entity)
+.. js:function:: GetName(entityindex)
 
-    Returns the name of the entity.
+    Returns the name of the class the entity belongs to.
 
-    :param Entity entity: Entity to inform about
+    :param integer entityindex: Entityindex of the entity
     :returns: Name of the entity
     :return type: string
 
-.. js:function:: GetWeapon(entity)
+.. js:function:: GetWeapon(entityindex)
 
     Returns the current helt weapon entity.
 
-    :param Entity entity: Entity to get the weapon from
+    :param integer entityindex: Entityindex of the entity
     :returns: Helt weapon
     :return type: Entity
 
-.. js:function:: GetWeapons(entity)
+.. js:function:: GetWeapons(entityindex)
 
     Returns all weapons the entity has.
 
-    :param Entity entity: Entity to get the weapons from
+    :param integer entityindex: Entityindex of the entity
     :returns: All weapons from the entity
     :return type: Entity
 
-.. js:function:: GetRenderOrigin(entity)
+.. js:function:: GetRenderOrigin(entityindex)
 
     Returns position of the entity.
 
-    :param Entity entity: Entity to get the position from
+    :param integer entityindex: Entityindex of the entity
     :returns: Position of the entity
     :return type: Vector3
 
-.. js:function:: GetRenderBox(?)
+.. js:function:: GetRenderBox(entityindex)
 
-    .. warning:: Undocumented function.
+    Returns the render box of the entity.
 
-.. js:function:: GetProp(entity, classname, propname)
+    :param integer entityindex: Entityindex of the entity
+    :returns: An array comprising of: valid/invalid (boolean), min X, min Y, max X, max Y
+    :return type: Array
+
+.. js:function:: GetProp(entityindex, table, propname)
 
     Returns the value of the prop of the entity.
     `classname` must be the name of the entity's class, e.g. `CCSPlayer` for players.
 
-    :param Entity entity: Entity to get the value from
-    :param string classname: Name of entity's class
+    :param integer entityindex: Entityindex of the entity
+    :param string table: Name of entity's class
     :param string propname: Name of the prop
     :returns: The value
     :return type: Any
 
-.. js:function:: SetProp(entity, classname, propname)
+.. js:function:: SetProp(entityindex, classname, propname, value)
 
     Sets the value of the prop of the entity.
     `classname` must be the name of the entity's class, e.g. `CCSPlayer` for players.
 
-    :param Entity entity: Entity to get the value from
+    :param integer entityindex: Entityindex of the entity
     :param string classname: Name of entity's class
     :param string propname: Name of the prop
+    :param Any value: The value
 
-.. js:function:: GetHitboxPosition(entity, hitbox)
+.. js:function:: GetHitboxPosition(entityindex, hitboxindex)
 
     Returns position of the hitbox.
 
-    :param Entity entity: Entity to get the position from
-    :param integer hitgroup: The hitbox
+    :param integer entityindex: Entityindex of the entity
+    :param integer hitgroup: Hitboxindex of the hitbox
     :returns: Position of the hitbox
     :return type: Vector3
 
-.. js:function:: GetEyePosition(entity)
+.. js:function:: GetEyePosition(entityindex)
 
     Returns position of the eye hitbox.
 
-    :param Entity entity: Entity to get the position from
+    :param integer entityindex: Entityindex of the entity
     :returns: Position of the eye hitbox
     :return type: Vector3
 
