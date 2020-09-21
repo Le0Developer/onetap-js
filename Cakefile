@@ -125,7 +125,13 @@ task "minify", "minify all compiled javascripts", (options) ->
 
         if updated
             js_code = fs.readFileSync(js).toString()
-            min_js = uglify_js.minify(js_code).code
+            minified = uglify_js.minify(js_code)
+            unless minified.code?
+                reporter.fail "Unable to minify javascript #{js}"
+                reporter.fail "#{minified.error.line}:#{minified.error.col} #{minified.error.message}"
+                continue
+
+            min_js = minified.code
 
             min_js = "// LICENSE: #{githome}LICENSE\n// Github: #{githome}#{coffee}\n// Automatically generated and compiled on #{(new Date).toString()}\n" + min_js
 
