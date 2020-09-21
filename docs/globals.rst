@@ -271,10 +271,11 @@ Cheat
     .. note::
         The text is clientside, so only you can see the text.
 
-.. js:function:: PrintColor(text)
+.. js:function:: PrintColor(color, text)
 
     Prints colored text into the CS:GO console.
 
+    :param Color color: The color for the text
     :param string text: The text to print into the console.
 
 
