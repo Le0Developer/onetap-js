@@ -703,6 +703,8 @@ UI
     Simulates pressing the hotkey for the element at the specified path.
 
     :param string ...path: Path of the element
+    :returns: New state of the hotkey, 1 is active, 0 means inactive
+    :return type: integer
 
 .. js:function:: IsMenuOpen()
 
