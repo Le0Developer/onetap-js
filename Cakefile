@@ -86,7 +86,7 @@ task "compile", "compile all coffeescripts from scripts.json to javascripts", (o
         if updated
             coffee_code = fs.readFileSync(coffee).toString()
             try
-                js_code = cs.compile coffee_code, {filename: coffee, header: true}
+                js_code = cs.compile coffee_code, {filename: coffee, header: true, bare: true}
             catch error
                 reporter.fail "Unable to compile coffeescript #{coffee}"
                 reporter.log error.toString()
