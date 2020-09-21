@@ -1016,9 +1016,15 @@ Trace
 
 .. js:module:: Trace
 
-.. js:function:: Line(?)
+.. js:function:: Line(entityindex, start, end)
 
-    .. warning:: Undocumented function.
+    Traces a line between start and end
+
+    :param integer entityindex: Entityindex of the entity
+    :param Vector3 start: Start of the trace
+    :param Vector3 end: End of the trace
+    :returns: What it hit
+    :return type: Array[target, fraction]
 
 .. js:function:: Bullet(?)
 
