@@ -78,30 +78,23 @@ Cheat events which use :js:mod:`Event` to distribute their settings.
 
     Structure:
 
-        +----------------+-----------+-----------------------+
-        |  Name          |  Type     |  Description          |
-        +================+===========+=======================+
-        |  exploit       |  integer  |  N/A                  |
-        +----------------+-----------+-----------------------+
-        |  hitgroup      |  integer  |  Hitgroup             |
-        +----------------+-----------+-----------------------+
-        |  hc            |  integer  |  Hitchance            |
-        +----------------+-----------+-----------------------+
-        |  safepoint     |  integer  |  Safepoint            |
-        +----------------+-----------+-----------------------+
-        |  target_index  |  integer  |  Index of the target  |
-        +----------------+-----------+-----------------------+
+        +----------------+-----------+-----------------------------------------+
+        |  Name          |  Type     |  Description                            |
+        +================+===========+=========================================+
+        |  exploit       |  integer  |  0 = no dt, 1 = not charged dt, 2 = dt  |
+        +----------------+-----------+-----------------------------------------+
+        |  target_index  |  integer  |  Entityindex of the target              |
+        +----------------+-----------+-----------------------------------------+
 
     Example:
 
 
     .. code:: js
 
+        var names = ["disabled", "not charged", "used"]
         function on_ragebot_fire() {
-            var hitgroup = Event.GetInt("hitgroup");
-            var hitchance = Event.GetInt("hc");
-            var safepoint = Event.GetInt("safepoint");
-            var expoit = Event.GetInt("exploit");
-            Cheat.Print("Shot hitgroup " + hitgroup + " with a chance of " + hitchance + "% safepoint=" + safepoint + " exploit=" + exploit);
+            var exploit = Event.GetInt("exploit");
+            var target = Event.GetInt("target_index");
+            Cheat.Print("ragebot shot at " + Entity.GetName(target) + ", doubletap was " + names[exploit] + "\n");
         }
         Cheat.RegisterCallback("ragebot_fire", "on_ragebot_fire");
