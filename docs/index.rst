@@ -18,6 +18,7 @@ Documentation Contents
 
    globals.rst
    callbacks.rst
+   sources.rst
 
 
 Indices and tables
