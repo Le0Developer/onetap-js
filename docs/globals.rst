@@ -176,15 +176,13 @@ Sound
 
 .. js:module:: Sound
 
-.. js:function:: Play(filename[, duration[, volume]])
+.. js:function:: Play(filename)
 
-    Plays a sound from a `.wav` file, optionally you can set a duration and a volume ranging from 0 to 1.
+    Plays a sound from a `.wav` file.
 
     :param string filename: Filename of the sound
-    :param float duration: Duration of the sound effect
-    :param float volume: Volume of the sound between 0 and 1
 
-.. js:function:: PlayMicrophone(filename, ?)
+.. js:function:: PlayMicrophone(filename)
 
     Plays a sound from a `.wav` file over your microphone.
 
