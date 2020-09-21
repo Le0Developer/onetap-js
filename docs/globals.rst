@@ -1216,22 +1216,44 @@ Material
 
 .. js:module:: Material
 
-.. js:function:: Create(?)
+.. js:function:: Create(name)
 
-    .. warning:: Undocumented function.
+    Creates a material.
 
-.. js:function:: Destroy(?)
+    :param string name: Name of the material
+    :returns: If the creation was successful
+    :return type: boolean
 
-    .. warning:: Undocumented function.
+.. js:function:: Destroy(name)
 
-.. js:function:: Get(?)
+    Destroys a material.
 
-    .. warning:: Undocumented function.
+    :param string name: Name of the material
+    :returns: If the destruction was successful
+    :return type: boolean
 
-.. js:function:: SetKeyValue(?)
+.. js:function:: Get(name)
 
-    .. warning:: Undocumented function.
+    Returns the material index.
 
-.. js:function:: Refresh(?)
+    :param string name: Name of the material
+    :returns: Materialindex
+    :return type: integer
 
-    .. warning:: Undocumented function.
+.. js:function:: SetKeyValue(materialindex, key, value)
+
+    Overrides values of the material.
+
+    .. note::
+        See also:
+
+            - https://developer.valvesoftware.com/wiki/Category:List_of_Shader_Parameters
+            - https://developer.valvesoftware.com/wiki/VertexLitGeneric
+
+    :param integer materialindex: Materialindex of the material
+    :param string key: Key
+    :param string value: value
+
+.. js:function:: Refresh(materialindex)
+
+    Refreshes the material with the new values from :js:func:`Material.SetKeyValue`.
