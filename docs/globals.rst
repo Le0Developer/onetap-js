@@ -503,10 +503,18 @@ Render
     :param string name: Name of the font
     :param integer size: Font size
     :param integer weight: Font weight
+    :returns: Font object
+    :return type: Any
 
-.. js:function:: FindFont(?)
+.. js:function:: FindFont(name, size, weight)
 
-    .. warning:: Undocumented function.
+    Returns font object.
+
+    :param string name: Name of the font
+    :param integer size: Font size
+    :param integer weight: Font weight
+    :returns: Font object
+    :return type: Any
 
 .. js:function:: StringCustom(x, y, align, text, color, font)
 
