@@ -509,13 +509,14 @@ Render
 
     .. warning:: Undocumented function.
 
-.. js:function:: StringCustom(x, y, ?, text, color, font)
+.. js:function:: StringCustom(x, y, align, text, color, font)
 
     Renders the string `text` at x|y with a custom font.
 
-    :param string text: Text to write
     :param integer x: x position
     :param integer y: y position
+    :param integer align: How to align the text
+    :param string text: Text to write
     :param Color color: Color
     :param Font font: Font
 
