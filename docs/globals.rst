@@ -1137,7 +1137,7 @@ Exploit
 
     Disables automatic recharge.
 
-.. js:function:: EnableRecharge(?)
+.. js:function:: EnableRecharge()
 
     Re-enables automatic recharge.
 
