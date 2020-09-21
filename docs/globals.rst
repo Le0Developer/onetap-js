@@ -1151,42 +1151,64 @@ Ragebot
 
     Returns the entity targetted by the ragebot.
 
-    :returns: Current Ragebot target
-    :return type: Entity
+    :returns: Entityindex of ragebot target
+    :return type: integer
 
-    .. note:: Can only be used during a :js:func:`ragebot_fire` callback.
+.. js:function:: IgnoreTarget(entityindex)
 
-.. js:function:: IgnoreTarget(?)
+    Ignores the entity matching entityindex.
 
-    .. warning:: Undocumented function.
+    .. note::
+        Only active for one tick and must be called in a :js:func:`CreateMove` callback.
 
-.. js:function:: ForceTarget(entity)
+    :param integer entityindex: Entityindex of the entity
+
+.. js:function:: ForceTarget(entityindex)
 
     Forces the ragebot to shoot at the entity whenever possible.
 
-    :param Entity entity: Entity to force
+    .. note::
+        Only active for one tick and must be called in a :js:func:`CreateMove` callback.
+        
+    :param integer entityindex: Entityindex of the entity
 
-.. js:function:: ForceTargetSafety(?)
+.. js:function:: ForceTargetSafety(entityindex)
 
-    .. warning:: Undocumented function.
+    Forces safety on a specific entity. (safepoint)
 
-.. js:function:: ForceTargetHitchance(entity, hitchance)
+    .. note::
+        Only active for one tick and must be called in a :js:func:`CreateMove` callback.
+    
+    :param integer entityindex: Entityindex of the entity
+
+.. js:function:: ForceTargetHitchance(entityindex, hitchance)
 
     Forces a minimum hitchance for entity.
 
-    :param Entity entity: Entity to force
+    .. note::
+        Only active for one tick and must be called in a :js:func:`CreateMove` callback.
+
+    :param integer entityindex: Entityindex of the entity
     :param integer hitchance: Hitchance to force
 
-.. js:function:: ForceTargetMinimumDamage(entity, damage)
+.. js:function:: ForceTargetMinimumDamage(entityindex, minimum_damage)
 
     Forces the minimum damage for entity.
 
-    :param Entity entity: Entity to force
-    :param integer minimumdamage: Damage to force
+    .. note::
+        Only active for one tick and must be called in a :js:func:`CreateMove` callback.
 
-.. js:function:: ForceHitboxSafety(?)
+    :param integer entityindex: Entityindex of the entity
+    :param integer minimum_damage: Damage to force
 
-    .. warning:: Undocumented function.
+.. js:function:: ForceHitboxSafety(hitboxindex)
+
+    Forces safety on a specific hitbox. (safepoint)
+
+    .. note::
+        Only active for one tick and must be called in a :js:func:`CreateMove` callback.
+
+    :param integer hitboxindex: Hitboxindex of the hitbox
 
 
 Material
