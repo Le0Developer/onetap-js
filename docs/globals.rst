@@ -857,8 +857,8 @@ Entity
     Returns the player with the userid.
 
     :param string userid: Userid of the player to find
-    :returns: Player matching the userid
-    :return type: Entity
+    :returns: Entityindexs matching the userid
+    :return type: integer
 
 .. js:function:: IsTeammate(entityindex)
 
