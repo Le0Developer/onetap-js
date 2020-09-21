@@ -25,6 +25,29 @@ Cheat Events
 
     :js:func:`Cheat.FrameStage` can be used during this callback.
 
+.. js:function:: Unload()
+
+    Called when the javascript is unloaded.
+
+
+.. js:function:: Material()
+
+    .. warning:: Undocumented callback.
+
+.. js:function:: FRAME_START()
+                 FRAME_RENDER_START()
+                 FRAME_RENDER_END()
+                 FRAME_NET_UPDATE_START()
+                 FRAME_NET_UPDATE_END()
+                 FRAME_NET_UPDATE_POSTDATAUPDATE_START()
+                 FRAME_NET_UPDATE_POSTDATAUPDATE_END()
+    
+    Called everytime the frame stage changes to the specific stage.
+
+    See also:
+
+        - :js:func:`FrameStageNotify`
+        - :js:func:`Cheat.FrameStage`
 
 CS:GO Events
 ------------
