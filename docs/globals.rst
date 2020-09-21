@@ -1236,6 +1236,9 @@ Material
 
     Returns the material index.
 
+    .. note::
+        Can only be used during a :js:func:`Material` callback.
+
     :param string name: Name of the material
     :returns: Materialindex
     :return type: integer
@@ -1250,6 +1253,9 @@ Material
             - https://developer.valvesoftware.com/wiki/Category:List_of_Shader_Parameters
             - https://developer.valvesoftware.com/wiki/VertexLitGeneric
 
+    .. note::
+        Can only be used during a :js:func:`Material` callback.
+
     :param integer materialindex: Materialindex of the material
     :param string key: Key
     :param string value: value
@@ -1257,3 +1263,8 @@ Material
 .. js:function:: Refresh(materialindex)
 
     Refreshes the material with the new values from :js:func:`Material.SetKeyValue`.
+
+    .. note::
+        Can only be used during a :js:func:`Material` callback.
+
+    :param integer materialindex: Materialindex of the material
