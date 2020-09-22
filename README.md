@@ -12,6 +12,7 @@ This mainly focuses on the crack.
 ## Building documentation
 
 Required:
+
     - [Python3](https://python.org)
 
 Install dependencies with: *(in [/docs](<docs>))*
@@ -28,6 +29,7 @@ make html
 ## Building scripts
 
 Required:
+
     - [Node.js](https://nodejs.org)
 
 Install dependencies with:
