@@ -690,14 +690,14 @@ UI
 
     :param string ...path: Path of the element
     :returns: The value of the element
-    :return type: Vector4
+    :return type: Color
 
 .. js:function:: SetColor(...path, color)
 
     Sets the value of the colorpicker element at the specified path to the color.
     
     :param string ...path: Path of the element
-    :param Vector4 color: New color
+    :param Color color: New color
 
 .. js:function:: ToggleHotkey(...path)
 
