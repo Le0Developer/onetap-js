@@ -692,7 +692,7 @@ UI
     :returns: The value of the element
     :return type: Vector4
 
-.. js:function:: SetColor(name, color)
+.. js:function:: SetColor(...path, color)
 
     Sets the value of the colorpicker element at the specified path to the color.
     
