@@ -807,7 +807,7 @@ Entity
     Returns all entities.
 
     :returns: All entities
-    :return type: Sequence[Entity]
+    :return type: Sequence[integer]
 
 .. js:function:: GetEntitiesByClassID(classid)
 
@@ -916,25 +916,25 @@ Entity
     :returns: Entity is dormant
     :return type: boolean
 
-.. js:function:: GetClassID(entity)
+.. js:function:: GetClassID(entityindex)
 
     Returns the class id of the class the entity belongs to.
 
-    :param Entity entity: Entity to inform about
+    :param integer entityindex: Entityindex of the entity
     :returns: Class id of the entity
     :return type: integer
 
-.. js:function:: GetClassName(entity)
+.. js:function:: GetClassName(entityindex)
 
-    Returns the class name of the entity.
+    Returns the name of the class the entity belongs to.
 
-    :param Entity entity: Entity to inform about
+    :param integer entityindex: Entityindex of the entity
     :returns: Class name of the entity
     :return type: string
 
 .. js:function:: GetName(entityindex)
 
-    Returns the name of the class the entity belongs to.
+    Returns the name of the entity.
 
     :param integer entityindex: Entityindex of the entity
     :returns: Name of the entity
@@ -946,7 +946,7 @@ Entity
 
     :param integer entityindex: Entityindex of the entity
     :returns: Helt weapon
-    :return type: Entity
+    :return type: integer
 
 .. js:function:: GetWeapons(entityindex)
 
@@ -954,7 +954,7 @@ Entity
 
     :param integer entityindex: Entityindex of the entity
     :returns: All weapons from the entity
-    :return type: Entity
+    :return type: integer
 
 .. js:function:: GetRenderOrigin(entityindex)
 
