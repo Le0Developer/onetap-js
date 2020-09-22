@@ -5,7 +5,7 @@ path = require "path"
 cs = require "coffeescript"
 uglify_js = require "uglify-js"
 
-githome = "https://github.com/le0developer/onetap/blob/master/"
+githome = "https://github.com/le0developer/onetap-js/blob/master/"
 license = (fs.readFileSync "LICENSE").toString()
 scripts = JSON.parse fs.readFileSync "scripts.json"
 

@@ -1,6 +1,6 @@
 /*
-Github: https://github.com/le0developer/onetap/blob/master/scripts/mm_fakeduck.coffee
-Automatically generated and compiled on Mon Sep 21 2020 19:42:25 GMT+0200 (Central European Summer Time)
+Github: https://github.com/le0developer/onetap-js/blob/master/scripts/mm_fakeduck.coffee
+Automatically generated and compiled on Tue Sep 22 2020 19:09:26 GMT+0200 (Central European Summer Time)
 
 MIT License
 
