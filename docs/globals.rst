@@ -715,6 +715,14 @@ UI
     :param string ...path: Path of the element
     :param Color color: New color
 
+.. js:function:: IsHotkeyActive(...path)
+
+    Returns if the specified hotkey is being held/pressed.
+
+    :param string ...path: Path of the element
+    :returns: If the hotkey is being pressed
+    :return type: boolean
+
 .. js:function:: ToggleHotkey(...path)
 
     Simulates pressing the hotkey for the element at the specified path.
