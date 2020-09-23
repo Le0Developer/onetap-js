@@ -956,7 +956,7 @@ Entity
 
 .. js:function:: GetWeapon(entityindex)
 
-    Returns the current helt weapon entity.
+    Returns the current held weapon entity.
 
     :param integer entityindex: Entityindex of the entity
     :returns: Helt weapon
