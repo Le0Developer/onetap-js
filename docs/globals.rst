@@ -5,6 +5,8 @@ Onetap.com Javascript globals
 
     Filename of the running script.
 
+    :type: string
+
 Global
 ------
 
