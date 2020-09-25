@@ -13,7 +13,7 @@ This mainly focuses on the crack.
 
 Required:
 
-    - [Python3](https://python.org)
+- [Python3](https://python.org)
 
 Install dependencies with: *(in [/docs](<docs>))*
 ```bash
@@ -30,7 +30,7 @@ make html
 
 Required:
 
-    - [Node.js](https://nodejs.org)
+- [Node.js](https://nodejs.org)
 
 Install dependencies with:
 ```bash
