@@ -413,9 +413,10 @@ Render
 .. note::
     Can only be used during a :js:func:`Draw` callback.
 
-.. js:function:: String(x, y, text, color[, size])
+.. js:function:: String(x, y, align, text, color[, size])
 
     Renders the string `text` at x|y.
+    Align 0 is left-aligned and everything else is centered.
 
     :param string text: Text to write
     :param integer x: x position
