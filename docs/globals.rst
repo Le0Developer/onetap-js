@@ -310,7 +310,7 @@ Local
 
         function onDraw() {
             const angles = Global.GetViewAngles();
-            Render.String(5, 5, "Angles: pitch=" + angles[0] + " yaw=" + angles[1] + " roll=" + angles[2]);
+            Render.String(5, 5, 0, "Angles: pitch=" + angles[0] + " yaw=" + angles[1] + " roll=" + angles[2], [255, 0, 0, 255]);
         }
         Global.RegisterCallback("Draw", "onDraw");
 
