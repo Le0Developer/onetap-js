@@ -1,7 +1,6 @@
 
 import os
 import pathlib
-import shutil
 import subprocess
 import tempfile
 
@@ -46,7 +45,7 @@ with tempfile.TemporaryDirectory() as tmp:
         r(['sphinx-build', '-b', 'html', str(p), str(tmp / 'en' / branch)])
 
     r(['git', 'checkout', '-b', 'gh-pages'])
-    shutil.copytree(tmp, '.')
+    r(['cp', '-r', str(tmp) + '/', '.'])
 
 
 print('Deploying to Github')
