@@ -36,7 +36,7 @@ commit_shas = []
 
 # save to temporary directory, so we can keep changing branches
 with tempfile.TemporaryDirectory() as tmp:
-    tmp = Path(tmp)
+    tmp = pathlib.Path(tmp)
 
     for branch in branches:
         print(f'Building for branch: {branch}')
