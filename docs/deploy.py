@@ -24,65 +24,63 @@ if missing_env:
     print('Missing following enviroment variables: ' + ', '.join(missing_env))
     exit(1)
 
-with tempfile.TemporaryDirectory() as tmp:
-    tmp = pathlib.Path(tmp)
 
-    branches = [
-        x.strip()
-        for x in r(['git', 'for-each-ref', '--format=%(refname:lstrip=-1)', 
-                    'refs/remotes/origin'], check_output=True).splitlines()
-        if x.strip() not in ('HEAD', 'gh-pages')
-    ]
-    commit_shas = []
+branches = [
+    x.strip()
+    for x in r(['git', 'for-each-ref', '--format=%(refname:lstrip=-1)',
+                'refs/remotes/origin'], check_output=True).splitlines()
+    if x.strip() not in ('HEAD', 'gh-pages')
+]
+commit_shas = []
 
-    for branch in branches:
-        print(f'Building for branch: {branch}')
-        r(['git', 'checkout', branch])
-        sha = r(['git', 'rev-parse', 'HEAD'], check_output=True).strip()
-        commit_shas.append(f'{branch} at {sha}')
-        r(['sphinx-build', '-b', 'html', str(p), str(tmp / 'en' / branch)])
+for branch in branches:
+    print(f'Building for branch: {branch}')
+    r(['git', 'checkout', branch])
+    sha = r(['git', 'rev-parse', 'HEAD'], check_output=True).strip()
+    commit_shas.append(f'{branch} at {sha}')
+    r(['sphinx-build', '-b', 'html', str(p), str(tmp / 'en' / branch)])
 
-    print('Deploying to Github')
-    r(['git', 'config', '--global', 'user.name', g('GITHUB_ACTOR')])
-    r(['git', 'config', '--global', 'user.email', g('GITHUB_ACTOR') + '@users.noreply.github.com'])
+print('Deploying to Github')
+r(['git', 'config', '--global', 'user.name', g('GITHUB_ACTOR')])
+r(['git', 'config', '--global', 'user.email', g('GITHUB_ACTOR') + '@users.noreply.github.com'])
 
-    r(['git', 'init'], cwd=str(tmp))
-    r(
-        [
-            'git', 'remote', 'add', 'deploy',
-            f'https://token:{g("GITHUB_TOKEN")}@'
-            f'github.com/{g("GITHUB_REPOSITORY")}.git'
-         ],
-        cwd=str(tmp)
-    )
-    r(['git', 'checkout', '-b', 'gh-pages'], cwd=str(tmp))
+r(
+    [
+        'git', 'remote', 'add', 'deploy',
+        f'https://token:{g("GITHUB_TOKEN")}@'
+        f'github.com/{g("GITHUB_REPOSITORY")}.git'
+     ]
+)
+r(['git', 'checkout', '-b', 'gh-pages'])
 
-    with open(tmp / '.nojekyll', 'w') as f:
-        pass
+with open(tmp / '.nojekyll', 'w') as f:
+    pass
 
-    with open(tmp / 'README.md', 'w') as f:
-        f.write('This is an automatically created branch for deployment on github pages.')
-    
-    with open(tmp / 'index.html', 'w') as f:
-        f.write('''\
+with open(tmp / 'README.md', 'w') as f:
+    f.write('This is an automatically created branch for deployment on github pages.')
+
+with open(tmp / 'index.html', 'w') as f:
+    f.write('''\
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>You are being redirected...</title>
-      <meta http-equiv = "refresh" content="0; url='/{0}/en/master/'" />
-   </head>
-   <body>
-      <p>Please wait while you're redirected to the <a href="/{0}/en/master/">documentation</a>.</p>
-   </body>
+<head>
+  <title>You are being redirected...</title>
+  <meta http-equiv = "refresh" content="0; url='/{0}/en/master/'" />
+</head>
+<body>
+  <p>Please wait while you're redirected to the <a href="/{0}/en/master/">documentation</a>.</p>
+</body>
 </html>'''.format(g('GITHUB_REPOSITORY').split('/')[1]))
 
-    r(['git', 'add', '-A'], cwd=str(tmp))
+r(['git', 'add', '-A'])
+
+changes = r(['git', 'status', '--porcelain'], check_output=True).strip()
+if changes:  # only commit when there're changes
     r(
         [
             'git', 'commit', '-m',
             f'deployment of latest push to master\n\n{"".join(commit_shas)}'
-        ],
-        cwd=str(tmp)
+        ]
     )
 
-    r(['git', 'push', 'deploy', 'gh-pages', '--force'], cwd=str(tmp))
+    r(['git', 'push', 'deploy', 'gh-pages'])
