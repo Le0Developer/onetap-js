@@ -1,6 +1,7 @@
 
 import os
 import pathlib
+import shutil
 import subprocess
 import tempfile
 
@@ -59,26 +60,6 @@ r(
         f'github.com/{g("GITHUB_REPOSITORY")}.git'
      ]
 )
-r(['git', 'checkout', '-b', 'gh-pages'])
-
-with open(tmp / '.nojekyll', 'w') as f:
-    pass
-
-with open(tmp / 'README.md', 'w') as f:
-    f.write('This is an automatically created branch for deployment on github pages.')
-
-with open(tmp / 'index.html', 'w') as f:
-    f.write('''\
-<!DOCTYPE html>
-<html>
-<head>
-  <title>You are being redirected...</title>
-  <meta http-equiv = "refresh" content="0; url='/{0}/en/master/'" />
-</head>
-<body>
-  <p>Please wait while you're redirected to the <a href="/{0}/en/master/">documentation</a>.</p>
-</body>
-</html>'''.format(g('GITHUB_REPOSITORY').split('/')[1]))
 
 r(['git', 'add', '-A'])
 
