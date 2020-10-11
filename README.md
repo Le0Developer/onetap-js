@@ -3,6 +3,8 @@
 
 [![Discord](https://discord.com/api/guilds/756989147163656273/widget.png)](https://discord.gg/FCnK6xp)
 
+The documentation can be found [here](https://le0developer.github.io/onetap-js/en/master/).
+
 This repository contains my scripts for the CS:GO cheat onetap and various utilities.
 This mainly focuses on the crack.
 
