@@ -33,12 +33,20 @@ branches = [
 ]
 commit_shas = []
 
-for branch in branches:
-    print(f'Building for branch: {branch}')
-    r(['git', 'checkout', branch])
-    sha = r(['git', 'rev-parse', 'HEAD'], check_output=True).strip()
-    commit_shas.append(f'{branch} at {sha}')
-    r(['sphinx-build', '-b', 'html', str(p), str(tmp / 'en' / branch)])
+# save to temporary directory, so we can keep changing branches
+with tempfile.TemporaryDirectory() as tmp:
+    tmp = Path(tmp)
+
+    for branch in branches:
+        print(f'Building for branch: {branch}')
+        r(['git', 'checkout', branch])
+        sha = r(['git', 'rev-parse', 'HEAD'], check_output=True).strip()
+        commit_shas.append(f'{branch} at {sha}')
+        r(['sphinx-build', '-b', 'html', str(p), str(tmp / 'en' / branch)])
+
+    r(['git', 'checkout', '-b', 'gh-pages'])
+    shutil.copytree(tmp, '.')
+
 
 print('Deploying to Github')
 r(['git', 'config', '--global', 'user.name', g('GITHUB_ACTOR')])
