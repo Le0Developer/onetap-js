@@ -1,4 +1,4 @@
-Onetap.com Javascript globals
+Onetap v3 Javascript globals
 =============================
 
 .. js:data:: __filename
@@ -8,7 +8,7 @@ Onetap.com Javascript globals
     :type: string
 
 Global
-------
+-------
 
 .. warning:: 
 
@@ -110,7 +110,7 @@ Global
 
 
 Globals
--------
+--------
 
 .. js:module:: Globals
 
@@ -167,7 +167,7 @@ Globals
     :return type: float
 
 Sound
------
+------
 
 .. js:module:: Sound
 
@@ -189,7 +189,7 @@ Sound
 
 
 Cheat
------
+------
 
 .. js:module:: Cheat
 
@@ -289,7 +289,7 @@ Cheat
 
 
 Local
------
+------
 
 .. js:module:: Local
 
@@ -359,7 +359,7 @@ Local
 
 
 World
------
+------
 
 .. js:module:: World
 
@@ -385,7 +385,7 @@ World
     :return type: string
 
 Input
------
+------
 
 .. js:module:: Input
 
@@ -406,7 +406,7 @@ Input
 
 
 Render
-------
+-------
 
 .. js:module:: Render
 
@@ -572,7 +572,7 @@ Render
     :return type: Vector2
 
 UI
---
+---
 
 .. js:module:: UI
 
@@ -741,7 +741,7 @@ UI
 
 
 Convar
-------
+-------
 
 .. js:module:: Convar
 
@@ -792,7 +792,7 @@ Convar
 
 
 Event
------
+------
 
 .. js:module:: Event
 
@@ -823,7 +823,7 @@ Event
 
 
 Entity
-------
+-------
 
 .. js:module:: Entity
 
@@ -1037,7 +1037,7 @@ Entity
 
 
 Trace
------
+------
 
 .. js:module:: Trace
 
@@ -1057,7 +1057,7 @@ Trace
 
 
 UserCMD
--------
+--------
 
 .. js:module:: UserCMD
 
@@ -1099,7 +1099,7 @@ UserCMD
 
 
 AntiAim
--------
+--------
 
 .. js:module:: AntiAim
 
@@ -1144,7 +1144,7 @@ AntiAim
 
 
 Exploit
--------
+--------
 
 .. js:module:: Exploit
 
@@ -1169,7 +1169,7 @@ Exploit
 
 
 Ragebot
--------
+--------
 
 .. js:module:: Ragebot
 
@@ -1244,7 +1244,7 @@ Ragebot
 
 
 Material
---------
+---------
 
 .. js:module:: Material
 
