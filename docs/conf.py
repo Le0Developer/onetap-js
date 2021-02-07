@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Onetap.com Javascript'
-copyright = 'Copyright 2020, Leo Developer, Rxvan'
-author = 'Leo Developer, Rxvan'
+copyright = 'Copyright 2021, Leo Developer'
+author = 'Leo Developer'
 
 
 # -- General configuration ---------------------------------------------------
