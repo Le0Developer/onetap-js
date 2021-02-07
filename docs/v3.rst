@@ -1,6 +1,6 @@
 
-Documentation Contents
------------------------
+Onetap V3 Documentation Contents
+---------------------------------
 
 This focused on the onetap v3 runtime that is found in the latest crack.
 
@@ -12,6 +12,6 @@ please let us know in `our discord <https://discord.gg/FCnK6xp>`_ or `create an 
    :maxdepth: 2
    :caption: Contents:
 
-   globals.rst
-   callbacks.rst
-   sources.rst
+   v3/globals.rst
+   v3/callbacks.rst
+   v3/sources.rst
