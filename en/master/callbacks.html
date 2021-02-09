@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onetap.com Javascript callbacks &#8212; Onetap.com Javascript  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sources" href="sources.html" />
+    <link rel="prev" title="Onetap.com Javascript globals" href="globals.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="onetap-com-javascript-callbacks">
+<h1>Onetap.com Javascript callbacks<a class="headerlink" href="#onetap-com-javascript-callbacks" title="Permalink to this headline">¶</a></h1>
+<p>Callbacks that can be registered using <a class="reference internal" href="globals.html#Cheat.RegisterCallback" title="Cheat.RegisterCallback"><code class="xref js js-func docutils literal notranslate"><span class="pre">Cheat.RegisterCallback()</span></code></a>.</p>
+<div class="section" id="cheat-events">
+<h2>Cheat Events<a class="headerlink" href="#cheat-events" title="Permalink to this headline">¶</a></h2>
+<dl class="js function">
+<dt id="CreateMove">
+<code class="sig-name descname">CreateMove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CreateMove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called everytime a move command is sent to the server.</p>
+<p><a class="reference internal" href="globals.html#module-UserCMD" title="UserCMD"><code class="xref js js-mod docutils literal notranslate"><span class="pre">UserCMD</span></code></a> can be used during this callback.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="Draw">
+<code class="sig-name descname">Draw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called everytime a frame is rendered.</p>
+<p><a class="reference internal" href="globals.html#module-Render" title="Render"><code class="xref js js-mod docutils literal notranslate"><span class="pre">Render</span></code></a> can be used during this callback.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="FrameStageNotify">
+<code class="sig-name descname">FrameStageNotify</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FrameStageNotify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called everytime the frame stage changes.</p>
+<p><a class="reference internal" href="globals.html#Cheat.FrameStage" title="Cheat.FrameStage"><code class="xref js js-func docutils literal notranslate"><span class="pre">Cheat.FrameStage()</span></code></a> can be used during this callback.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="Unload">
+<code class="sig-name descname">Unload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Unload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the javascript is unloaded.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="Material">
+<code class="sig-name descname">Material</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Material" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Undocumented callback.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="cs-go-events">
+<h2>CS:GO Events<a class="headerlink" href="#cs-go-events" title="Permalink to this headline">¶</a></h2>
+<p>You can use all <a class="reference external" href="https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events">CS:GO events</a> as callbacks.</p>
+<p><a class="reference internal" href="globals.html#module-Event" title="Event"><code class="xref js js-mod docutils literal notranslate"><span class="pre">Event</span></code></a> can be used during these callbacks.</p>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">on_player_death</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">entity</span> <span class="o">=</span> <span class="nx">Entity</span><span class="p">.</span><span class="nx">GetEntityFromUserID</span><span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">GetInt</span><span class="p">(</span><span class="s2">&quot;userid&quot;</span><span class="p">));</span>
+    <span class="nx">Cheat</span><span class="p">.</span><span class="nx">PrintChat</span><span class="p">(</span><span class="s2">&quot;\x02&quot;</span> <span class="o">+</span> <span class="nx">Entity</span><span class="p">.</span><span class="nx">GetName</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; \x01died!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">Cheat</span><span class="p">.</span><span class="nx">RegisterCallback</span><span class="p">(</span><span class="s2">&quot;player_death&quot;</span><span class="p">,</span> <span class="s2">&quot;on_player_death&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="special-cheat-events">
+<h2>Special Cheat Events<a class="headerlink" href="#special-cheat-events" title="Permalink to this headline">¶</a></h2>
+<p>Cheat events which use <a class="reference internal" href="globals.html#module-Event" title="Event"><code class="xref js js-mod docutils literal notranslate"><span class="pre">Event</span></code></a> to distribute their settings.</p>
+<dl class="js function">
+<dt id="ragebot_fire">
+<code class="sig-name descname">ragebot_fire</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ragebot_fire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called everytime the ragebot shoots at an enemy.</p>
+<p>Structure:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 16%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>exploit</p></td>
+<td><p>integer</p></td>
+<td><p>0 = no dt, 1 = not charged dt, 2 = dt</p></td>
+</tr>
+<tr class="row-odd"><td><p>target_index</p></td>
+<td><p>integer</p></td>
+<td><p>Entityindex of the target</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;disabled&quot;</span><span class="p">,</span> <span class="s2">&quot;not charged&quot;</span><span class="p">,</span> <span class="s2">&quot;used&quot;</span><span class="p">]</span>
+<span class="kd">function</span> <span class="nx">on_ragebot_fire</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">exploit</span> <span class="o">=</span> <span class="nx">Event</span><span class="p">.</span><span class="nx">GetInt</span><span class="p">(</span><span class="s2">&quot;exploit&quot;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">Event</span><span class="p">.</span><span class="nx">GetInt</span><span class="p">(</span><span class="s2">&quot;target_index&quot;</span><span class="p">);</span>
+    <span class="nx">Cheat</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="s2">&quot;ragebot shot at &quot;</span> <span class="o">+</span> <span class="nx">Entity</span><span class="p">.</span><span class="nx">GetName</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, doubletap was &quot;</span> <span class="o">+</span> <span class="nx">names</span><span class="p">[</span><span class="nx">exploit</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">Cheat</span><span class="p">.</span><span class="nx">RegisterCallback</span><span class="p">(</span><span class="s2">&quot;ragebot_fire&quot;</span><span class="p">,</span> <span class="s2">&quot;on_ragebot_fire&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Onetap.com Javascript</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=le0developer&repo=onetap-js&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="globals.html">Onetap.com Javascript globals</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Onetap.com Javascript callbacks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cheat-events">Cheat Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cs-go-events">CS:GO Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#special-cheat-events">Special Cheat Events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sources.html">Sources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="globals.html" title="previous chapter">Onetap.com Javascript globals</a></li>
+      <li>Next: <a href="sources.html" title="next chapter">Sources</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;Copyright 2020, Leo Developer, Rxvan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/callbacks.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/le0developer/onetap-js" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>
