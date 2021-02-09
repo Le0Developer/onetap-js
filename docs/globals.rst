@@ -1173,12 +1173,6 @@ Ragebot
 
 .. js:module:: Ragebot
 
-.. warning::
-    All functions that can only be called in a :js:func:`CreateMove` callback, MUST be called
-    in the main callback function. If you try to call them in a subfunction it won't work.
-
-    *Why?* Someone broke this while updating the crack.
-
 .. js:function:: GetTarget()
 
     Returns the entity targetted by the ragebot.
