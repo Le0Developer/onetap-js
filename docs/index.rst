@@ -12,6 +12,7 @@ Documentation Contents
    :caption: Contents:
 
    v3.rst
+   v3rerun.rst
 
 
 Indices and tables
