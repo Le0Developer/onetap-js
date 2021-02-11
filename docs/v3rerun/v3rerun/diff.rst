@@ -5,6 +5,9 @@ Differences: Onetap v3 vs Onetap v3 Re:Run
 The Onetap v3 **Re**\ mastered **Run**\ time is a project to make the onetap 
 runtime better, remove code, simplify code and make it more intuitive.
 
+If you ever need the original runtime for any reason, you can use the `__reality` module.
+(e.g. `__reality.Entity.GetName(index)`)
+
 
 Re:Run removes the `Global` module
 -----------------------------------
