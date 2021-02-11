@@ -495,7 +495,7 @@ Render
         }
         Cheat.RegisterCallback("Draw", "onDraw");
 
-    :param Sequence[Vector2] points: The 3 corners
+    :param Array[Vector2] points: The 3 corners
     :param Color color: Color
 
 .. js:function:: WorldToScreen(position)
@@ -657,7 +657,8 @@ UI
         UI.GetValue("Misc", "JAVASCRIPT", "Script Items", "sample dropdown") == 0 // selected by default
 
     :param string name: Name of the dropdown
-    :param Sequence[string] options: Sequence(array) of options
+    :param options: Array of options
+    :type options: Array[options]
 
 .. js:function:: AddMultiDropdown(name, options)
 
@@ -672,7 +673,8 @@ UI
         UI.GetValue("Misc", "JAVASCRIPT", "Script Items", "sample dropdown") == [] // empty list because nothing is selected
 
     :param string name: Name of the multidropdown
-    :param Sequence[string] options: Sequence(array) of options
+    :param options: Array of options
+    :type options: Array[options]
 
 .. js:function:: AddColorPicker(name)
 
@@ -832,7 +834,7 @@ Entity
     Returns all entities.
 
     :returns: All entities
-    :return type: Sequence[integer]
+    :return type: Array[integer]
 
 .. js:function:: GetEntitiesByClassID(classid)
 
@@ -847,21 +849,21 @@ Entity
     Returns all players.
 
     :returns: All playerindexes
-    :return type: Sequence[integer]
+    :return type: Array[integer]
 
 .. js:function:: GetEnemies()
 
     Returns all players in the enemy team.
 
     :returns: All enemyindexes
-    :return type: Sequence[integer]
+    :return type: Array[integer]
 
 .. js:function:: GetTeammates()
 
     Returns all players your team.
 
     :returns: All teammateindexes
-    :return type: Sequence[integer]
+    :return type: Array[integer]
 
 .. js:function:: GetLocalPlayer()
 
