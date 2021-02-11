@@ -12,6 +12,6 @@ please let us know in `our discord <https://discord.gg/FCnK6xp>`_ or `create an 
    :maxdepth: 2
    :caption: Contents:
 
-   v3/globals.rst
-   v3/callbacks.rst
-   v3/sources.rst
+   globals.rst
+   callbacks.rst
+   sources.rst

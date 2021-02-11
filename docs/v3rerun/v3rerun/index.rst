@@ -10,5 +10,5 @@ This is the documentation of the onetap v3 **Re**\ mastered **Run**\ time.
    :maxdepth: 2
    :caption: Contents:
 
-   v3rerun/globals.rst
-   v3rerun/callbacks.rst
+   globals.rst
+   callbacks.rst
