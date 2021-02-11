@@ -21,19 +21,80 @@ Classes
 
 .. js:method:: Reference.GetValue()
 
-.. js:method:: Reference.GetString()
+    Returns the value of this UI element.
 
-.. js:method:: Reference.GetColor()
+    Example:
+
+    .. code:: js
+
+        FAKELAG_ENABLED = Reference("Anti-Aim", "Fake-Lag", "Enabled")
+        FAKELAG_LIMIT = Reference("Anti-Aim", "Fake-Lag", "Limit")
+        function GetFakelag() {
+            if(!FAKELAG_ENABLED.GetValue())
+                return 0; // fakelag disabled
+            return FAKELAG_LIMIT.GetValue();
+        }
+
+    :returns: The value of the element
+    :return type: Any
 
 .. js:method:: Reference.SetValue(value)
 
+    Sets the value of this UI element.
+
+    Example:
+
+    .. code:: js
+
+        FAKELAG_ENABLED = Reference("Anti-Aim", "Fake-Lag", "Enabled")
+        function disableFakelag() {
+            FAKELAG_ENABLED.SetValue(false);
+        }
+    
+    :param string ...path: Path of the element
+    :param Any value: New value
+
 .. js:method:: Reference.SetEnabled(value)
+
+    Enables/disables this element.
+
+    :param boolean value: Whether to enable or disable
+
+.. js:method:: Reference.GetString()
+
+    Returns the value of this textbox element.
+
+    :returns: The value of the element
+    :return type: string
+
+.. js:method:: Reference.GetColor()
+
+    Returns the value of this colorpicker element.
+
+    :returns: The value of the element
+    :return type: :js:class:`RGBA`
 
 .. js:method:: Reference.SetColor(value)
 
+    Sets the value of the colorpicker element at the specified path to the color.
+    
+    :param string ...path: Path of the element
+    :param color: New color
+    :type color: :js:class:`RGBA`
+
 .. js:method:: Reference.IsHotKeyActive()
 
+    Returns if the hotkey of this element is being held/pressed.
+
+    :returns: If the hotkey is being held/pressed
+    :return type: boolean
+
 .. js:method:: Reference.ToggleHotkey()
+
+    Simulates pressing the hotkey for this element.
+
+    :returns: New state of the hotkey, 1 is active, 0 means inactive
+    :return type: integer
 
 
 .. js:class:: Entity(entityindex)
