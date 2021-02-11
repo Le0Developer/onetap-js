@@ -1000,7 +1000,7 @@ Entity
 .. js:function:: GetProp(entityindex, table, propname)
 
     Returns the value of the prop of the entity.
-    `classname` must be the name of the entity's class, e.g. `CCSPlayer` for players.
+    `table` is most of the time the name of the entity's class, e.g. `CCSPlayer` for players.
 
     :param integer entityindex: Entityindex of the entity
     :param string table: Name of entity's class
@@ -1008,13 +1008,13 @@ Entity
     :returns: The value
     :return type: Any
 
-.. js:function:: SetProp(entityindex, classname, propname, value)
+.. js:function:: SetProp(entityindex, table, propname, value)
 
     Sets the value of the prop of the entity.
-    `classname` must be the name of the entity's class, e.g. `CCSPlayer` for players.
+    `table` is most of the time the name of the entity's class, e.g. `CCSPlayer` for players.
 
     :param integer entityindex: Entityindex of the entity
-    :param string classname: Name of entity's class
+    :param string table: Name of entity's class
     :param string propname: Name of the prop
     :param Any value: The value
 
