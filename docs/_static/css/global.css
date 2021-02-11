@@ -7,6 +7,9 @@ dl.js.attribute {
 dl.js.method {
     margin-left: 40px;
 }
-.descclassname {
+dl.js.attribute .descclassname {
+    display: none;
+}
+dl.js.method .descclassname {
     display: none;
 }
