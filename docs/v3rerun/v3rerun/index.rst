@@ -12,3 +12,4 @@ This is the documentation of the onetap v3 **Re**\ mastered **Run**\ time.
 
    globals.rst
    callbacks.rst
+   diff.rst
