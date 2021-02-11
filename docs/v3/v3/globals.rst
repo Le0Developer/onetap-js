@@ -978,8 +978,8 @@ Entity
     Returns all weapons the entity has.
 
     :param integer entityindex: Entityindex of the entity
-    :returns: All weapons from the entity
-    :return type: integer
+    :returns: All weapons of the entity
+    :return type: Array[integer]
 
 .. js:function:: GetRenderOrigin(entityindex)
 
