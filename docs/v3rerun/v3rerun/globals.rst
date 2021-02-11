@@ -107,37 +107,136 @@ Classes
 
 .. js:method:: Entity.IsTeammate()
 
+    Returns if this entity is a teammate.
+
+    :returns: Entity is a teammate
+    :return type: boolean
+
+.. js:method:: Entity.IsEnemy()
+
+    Returns if this entity is an enemy.
+
+    :returns: Entity is an enemy
+    :return type: boolean
+
 .. js:method:: Entity.IsBot()
+
+    Returns if this entity is a bot.
+
+    :returns: Entity is a bot
+    :return type: boolean
 
 .. js:method:: Entity.IsLocalPlayer()
 
+    Returns if this entity matches yourself.
+
+    :returns: Entity is yourself
+    :return type: boolean
+
 .. js:method:: Entity.IsValid()
+
+    Returns if this entity is valid.
+
+    :returns: Entity is valid
+    :return type: boolean
 
 .. js:method:: Entity.IsAlive()
 
+    Returns if this entity is alive.
+
+    :returns: Entity is alive
+    :return type: boolean
+
 .. js:method:: Entity.IsDormant()
+
+    Returns if this entity is dormant.
+
+    :returns: Entity is dormant
+    :return type: boolean
 
 .. js:method:: Entity.GetClassID()
 
+    Returns the class id of the class this entity belongs to.
+
+    :returns: Class id of the entity
+    :return type: integer
+
 .. js:method:: Entity.GetClassName()
+
+    Returns the name of the class this entity belongs to.
+
+    :returns: Class name of the entity
+    :return type: string
 
 .. js:method:: Entity.GetName()
 
+    Returns the name of this entity.
+
+    :returns: Name of the entity
+    :return type: string
+
 .. js:method:: Entity.GetWeapon()
+
+    Returns the current held weapon entity.
+
+    :returns: Held weapon
+    :return type: :js:class:`Entity`
 
 .. js:method:: Entity.GetWeapons()
 
+    Returns all weapons this entity has.
+
+    :returns: All weapons of this entity
+    :return type: Array[:js:class:`Entity`]
+
 .. js:method:: Entity.GetRenderOrigin()
+
+    Returns position of this entity.
+
+    :returns: Position of this entity
+    :return type: Vector3
 
 .. js:method:: Entity.GetRenderBox()
 
+    Returns the render box of this entity.
+
+    :returns: An array comprising of: valid/invalid (boolean), min X, min Y, max X, max Y
+    :return type: Array
+
+
 .. js:method:: Entity.GetProp(table, propname)
+
+    Returns the value of the prop of this entity.
+    `table` is most of the time the name of the entity's class, e.g. `CCSPlayer` for players.
+
+    :param string table: Name of entity's class
+    :param string propname: Name of the prop
+    :returns: The value
+    :return type: Any
 
 .. js:method:: Entity.SetProp(table, propname, value)
 
+    Sets the value of the prop of this entity.
+    `table` is most of the time the name of the entity's class, e.g. `CCSPlayer` for players.
+
+    :param string table: Name of entity's class
+    :param string propname: Name of the prop
+    :param Any value: The value
+
 .. js:method:: Entity.GetHitboxPositions(hitboxindex)
 
+    Returns position of the hitbox.
+
+    :param integer hitgroup: Hitboxindex of the hitbox
+    :returns: Position of the hitbox
+    :return type: :js:class:`Vector3`
+
 .. js:method:: Entity.GetEyePosition()
+
+    Returns position of the eye hitbox.
+
+    :returns: Position of the eye hitbox
+    :return type: :js:class:`Vector3`
 
 
 .. js:class:: Material(material)
