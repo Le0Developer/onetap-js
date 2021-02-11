@@ -970,7 +970,7 @@ Entity
     Returns the current held weapon entity.
 
     :param integer entityindex: Entityindex of the entity
-    :returns: Helt weapon
+    :returns: Held weapon
     :return type: integer
 
 .. js:function:: GetWeapons(entityindex)
