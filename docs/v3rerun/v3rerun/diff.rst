@@ -51,19 +51,19 @@ arguments.
         players = Entity.GetPlayers();
         for (i = 0, len = ref.length; i < len; i++) {
             player = players[i];
-            Cheat.Print(Entity.GetName(player));
+            Cheat.Print(Entity.GetName(player) + "\n");
         }
 
         // Re:Run
         players = Entities.GetPlayers();
         for (i = 0, len = ref.length; i < len; i++) {
             player = players[i];
-            Cheat.Print(player.GetName());
+            Cheat.Print(player.GetName() + "\n");
         }
 
         // from entityindex
         player = new Entity(index);
-        Cheat.Print(player.GetName());
+        Cheat.Print(player.GetName() + "\n");
 
     .. note:: The original `Entity` module has been renamed to `Entities`
 
