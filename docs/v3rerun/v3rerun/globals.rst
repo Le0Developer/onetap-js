@@ -79,6 +79,41 @@ Classes
 .. js:method:: Entity.GetEyePosition()
 
 
+.. js:class:: Material(material)
+
+    :param string material: Name of the material
+
+
+.. js:attribute:: Material.name
+
+    Name of the material
+
+    :type: string
+
+.. js:method:: Material.SetKeyValue(key, value)
+
+    Overrides values.
+
+    .. note::
+        See also:
+
+            - https://developer.valvesoftware.com/wiki/Category:List_of_Shader_Parameters
+            - https://developer.valvesoftware.com/wiki/VertexLitGeneric
+
+    .. note::
+        Can only be used during a :js:func:`Material` callback.
+
+    :param string key: Key
+    :param string value: value
+
+.. js:method:: Material.Refresh()
+
+    Refreshes the material with the new values from :js:meth:`Material.SetKeyValue`.
+
+    .. note::
+        Can only be used during a :js:func:`Material` callback.
+
+
 .. js:class:: Vector2(x, y)
 
     A 2d vector
@@ -129,41 +164,6 @@ Classes
 .. js:method:: RGBA.pack()
 
 .. js:function:: RGBA.unpack(array)
-
-
-.. js:class:: Material(material)
-
-    :param string material: Name of the material
-
-
-.. js:attribute:: Material.name
-
-    Name of the material
-
-    :type: string
-
-.. js:method:: Material.SetKeyValue(key, value)
-
-    Overrides values.
-
-    .. note::
-        See also:
-
-            - https://developer.valvesoftware.com/wiki/Category:List_of_Shader_Parameters
-            - https://developer.valvesoftware.com/wiki/VertexLitGeneric
-
-    .. note::
-        Can only be used during a :js:func:`Material` callback.
-
-    :param string key: Key
-    :param string value: value
-
-.. js:method:: Material.Refresh()
-
-    Refreshes the material with the new values from :js:meth:`Material.SetKeyValue`.
-
-    .. note::
-        Can only be used during a :js:func:`Material` callback.
 
 
 Globals
