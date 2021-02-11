@@ -10,7 +10,128 @@ Onetap v3 Re:Run Javascript globals
 
 Classes
 --------
-.. js:class:: Material
+
+.. js:class:: Reference(*path)
+
+    :param string *path: Path to the javascript element
+
+.. js:attribute:: Reference.path
+
+    :type: Array[string]
+
+.. js:method:: Reference.GetValue()
+
+.. js:method:: Reference.GetString()
+
+.. js:method:: Reference.GetColor()
+
+.. js:method:: Reference.SetValue(value)
+
+.. js:method:: Reference.SetEnabled(value)
+
+.. js:method:: Reference.SetColor(value)
+
+.. js:method:: Reference.IsHotKeyActive()
+
+.. js:method:: Reference.ToggleHotkey()
+
+
+.. js:class:: Entity(entityindex)
+
+    :param integer entityindex: Entityindex of the entity
+
+.. js:attribute:: Entity.entityindex
+
+    :type: integer
+
+.. js:method:: Entity.IsTeammate()
+
+.. js:method:: Entity.IsBot()
+
+.. js:method:: Entity.IsLocalPlayer()
+
+.. js:method:: Entity.IsValid()
+
+.. js:method:: Entity.IsAlive()
+
+.. js:method:: Entity.IsDormant()
+
+.. js:method:: Entity.GetClassID()
+
+.. js:method:: Entity.GetClassName()
+
+.. js:method:: Entity.GetName()
+
+.. js:method:: Entity.GetWeapon()
+
+.. js:method:: Entity.GetWeapons()
+
+.. js:method:: Entity.GetRenderOrigin()
+
+.. js:method:: Entity.GetRenderBox()
+
+.. js:method:: Entity.GetProp(table, propname)
+
+.. js:method:: Entity.SetProp(table, propname, value)
+
+.. js:method:: Entity.GetHitboxPositions(hitboxindex)
+
+.. js:method:: Entity.GetEyePosition()
+
+
+.. js:class:: Vector2(x, y)
+
+    A 2d vector
+
+    :param number x: x position
+    :param number y: y position
+
+.. js:method:: Vector2.pack()
+
+.. js:function:: Vector2.unpack(array)
+
+
+.. js:class:: Vector3(x, y, z)
+
+    A 3d vector
+
+    :param number x: x position
+    :param number y: y position
+    :param number z: z position
+
+.. js:method:: Vector3.pack()
+
+.. js:function:: Vector3.unpack(array)
+
+
+.. js:class:: Angles(pitch, yaw, roll)
+
+    An angle.
+
+    :param number pitch: pitch
+    :param number yaw: yaw
+    :param number roll: roll
+
+.. js:method:: Angles.pack()
+
+.. js:function:: Angles.unpack(array)
+
+
+.. js:class:: RGBA(r, g, b, a)
+
+    A RGBA color.
+
+    :param integer r: red channel
+    :param integer g: green channel
+    :param integer b: blue channel
+    :param integer a: alpha (transparency)
+
+.. js:method:: RGBA.pack()
+
+.. js:function:: RGBA.unpack(array)
+
+
+.. js:class:: Material(material)
 
     :param string material: Name of the material
 
