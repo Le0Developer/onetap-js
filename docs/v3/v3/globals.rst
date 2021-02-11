@@ -471,7 +471,8 @@ Render
     :param integer y: y position
     :param integer width: width
     :param integer height: height
-    :param Color color: Color
+    :param Color color1: First color
+    :param Color color2: Second color
 
 .. js:function:: Circle(x, y, r, color)
 
