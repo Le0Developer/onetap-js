@@ -11,9 +11,9 @@ Onetap v3 Re:Run Javascript globals
 Classes
 --------
 
-.. js:class:: Reference(*path)
+.. js:class:: Reference(...path)
 
-    :param string *path: Path to the javascript element
+    :param string ...path: Path to the javascript element
 
 .. js:attribute:: Reference.path
 
@@ -27,8 +27,8 @@ Classes
 
     .. code:: js
 
-        FAKELAG_ENABLED = Reference("Anti-Aim", "Fake-Lag", "Enabled")
-        FAKELAG_LIMIT = Reference("Anti-Aim", "Fake-Lag", "Limit")
+        FAKELAG_ENABLED = new Reference("Anti-Aim", "Fake-Lag", "Enabled")
+        FAKELAG_LIMIT = new Reference("Anti-Aim", "Fake-Lag", "Limit")
         function GetFakelag() {
             if(!FAKELAG_ENABLED.GetValue())
                 return 0; // fakelag disabled
@@ -46,7 +46,7 @@ Classes
 
     .. code:: js
 
-        FAKELAG_ENABLED = Reference("Anti-Aim", "Fake-Lag", "Enabled")
+        FAKELAG_ENABLED = new Reference("Anti-Aim", "Fake-Lag", "Enabled")
         function disableFakelag() {
             FAKELAG_ENABLED.SetValue(false);
         }
@@ -500,7 +500,8 @@ Cheat
 
     Prints colored text into the CS:GO console.
 
-    :param Color color: The color for the text
+    :param color: The color for the text
+    :type color: :js:class:`RGBA`
     :param string text: The text to print into the console.
 
 
@@ -526,17 +527,18 @@ Local
 
         Global.RegisterCallback("Draw", function() {
             const angles = Global.GetViewAngles();
-            Render.String(5, 5, 0, "Angles: pitch=" + angles[0] + " yaw=" + angles[1] + " roll=" + angles[2], [255, 0, 0, 255]);
+            Render.String(5, 5, 0, "Angles: pitch=" + angles.pitch + " yaw=" + angles.yaw + " roll=" + angles.roll, [255, 0, 0, 255]);
         });
 
     :returns: Current viewangles
-    :return type: Vector3
+    :return type: :js:class:`Angles`
 
 .. js:function:: SetViewAngles(angles)
 
     Sets the current viewangles of yourself.
 
-    :param Vector3 angles: New viewangles.
+    :param angles: New viewangles.
+    :type angles: :js:class:`Angles`
 
 .. js:function:: SetClanTag(tag)
 
@@ -609,7 +611,7 @@ Input
     Returns the current position of the cursor.
 
     :returns: Cursorposition
-    :return type: Vector2
+    :return type: :js:class:`Vector2`
 
 .. js:function:: IsKeyPressed(key)
 
@@ -636,7 +638,8 @@ Render
     :param string text: Text to write
     :param integer x: x position
     :param integer y: y position
-    :param Color color: Color
+    :param color: Color
+    :type color: :js:class:`RGBA`
     :param integer size: Size of the text
 
 .. js:function:: TextSize(text[, size])
@@ -646,7 +649,7 @@ Render
     :param string text: Text to measure
     :param integer size: Size of the text
     :returns: Size the text would take
-    :return type: Vector2
+    :return type: :js:class:`Vector2`
 
 .. js:function:: Line(x1, y1, x2, y2, color)
 
@@ -656,7 +659,8 @@ Render
     :param integer y1: y position of the start
     :param integer x2: x position of the end
     :param integer y2: y position of the end
-    :param Color color: Color
+    :param color: Color
+    :type color: :js:class:`RGBA`
 
 .. js:function:: Rect(x, y, width, height, color)
 
@@ -666,7 +670,8 @@ Render
     :param integer y: y position
     :param integer width: width
     :param integer height: height
-    :param Color color: Color
+    :param color: Color
+    :type color: :js:class:`RGBA`
 
 .. js:function:: FilledRect(x, y, width, height, color)
 
@@ -676,7 +681,8 @@ Render
     :param integer y: y position
     :param integer width: width
     :param integer height: height
-    :param Color color: Color
+    :param color: Color
+    :type color: :js:class:`RGBA`
 
 .. js:function:: GradientRect(x, y, width, height, color1, color2)
 
@@ -686,7 +692,10 @@ Render
     :param integer y: y position
     :param integer width: width
     :param integer height: height
-    :param Color color: Color
+    :param color1: First color
+    :type color1: :js:class:`RGBA`
+    :param color2: Second color
+    :type color2: :js:class:`RGBA`
 
 .. js:function:: Circle(x, y, r, color)
 
@@ -695,7 +704,8 @@ Render
     :param integer x: x position
     :param integer y: y position
     :param integer r: radius of the circle
-    :param Color color: Color
+    :param color: Color
+    :type color: :js:class:`RGBA`
 
 .. js:function:: Polygon(points, color)
 
@@ -705,21 +715,23 @@ Render
 
     .. code:: js
 
-        function onDraw() {
+        Cheat.RegisterCallback("Draw", function() {
             Render.Polygon([[50, 0], [25, 50], [75, 50]], [255, 0, 0, 255]);
-        }
-        Cheat.RegisterCallback("Draw", "onDraw");
+        });
 
-    :param Sequence[Vector2] points: The 3 corners
-    :param Color color: Color
+    :param points: The 3 corners
+    :type points: Array[:js:class:`Vector2`]
+    :param color: Color
+    :type color: :js:class:`RGBA`
 
 .. js:function:: WorldToScreen(position)
 
     Returns screen position from world position.
 
-    :param Vector3 position: Position in the world
+    :param position: Position in the world
+    :type position: :js:class:`Vector3`
     :returns: Position on screen
-    :return type: Vector2
+    :return type: :js:class:`Vector2`
 
 .. js:function:: AddFont(name, size, weight)
 
@@ -749,7 +761,8 @@ Render
     :param integer y: y position
     :param integer align: How to align the text
     :param string text: Text to write
-    :param Color color: Color
+    :param color: Color
+    :type color: :js:class:`RGBA`
     :param Font font: Font
 
 .. js:function:: TexturedRect(x, y, width, height, texture)
@@ -777,58 +790,27 @@ Render
     :param string text: Text
     :param Font font: Font
     :returns: Size of the text
-    :return type: Vector2
+    :return type: :js:class:`Vector2`
 
 .. js:function:: GetScreenSize()
 
     Returns the size of the screen.
 
     :returns: Screensize
-    :return type: Vector2
+    :return type: :js:class:`Vector2`
 
 UI
 ---
 
 .. js:module:: UI
 
-.. js:function:: GetValue(...path)
-
-    Returns the value of the UI element at the specified path.
-
-    Example:
-
-    .. code:: js
-
-        function GetFakelag() {
-            if(!UI.GetValue("Anti-Aim", "Fake-Lag", "Enabled"))
-                return 0; // fakelag disabled
-            return UI.GetValue("Anti-Aim", "Fake-Lag", "Limit");
-        }
-
-    :param string ...path: Path of the element
-    :returns: The value of the element
-    :return type: Any
-
-.. js:function:: SetValue(...path, value)
-
-    Sets the value of the UI element at the specified path to value.
-
-    Example:
-
-    .. code:: js
-
-        function disableFakelag() {
-            UI.SetValue("Anti-Aim", "Fake-Lag", "Enabled", false);
-        }
-    
-    :param string ...path: Path of the element
-    :param Any value: New value
-
 .. js:function:: AddCheckbox(name)
 
     Adds a checkbox element to "Misc", "JAVASCRIPT", "Script Items".
 
     :param string name: Name of the checkbox
+    :returns: A Reference to the element
+    :return type: :js:class:`Reference`
 
 .. js:function:: AddSliderInt(name[, min[, max])
 
@@ -837,6 +819,8 @@ UI
     :param string name: Name of the slider
     :param integer min: Minimal value
     :param integer max: Maximal value
+    :returns: A Reference to the element
+    :return type: :js:class:`Reference`
 
 .. js:function:: AddSliderFloat(name[, min[, max])
 
@@ -845,6 +829,8 @@ UI
     :param string name: Name of the slider
     :param float min: Minimal value
     :param float max: Maximal value
+    :returns: A Reference to the element
+    :return type: :js:class:`Reference`
 
 
 .. js:function:: AddHotkey(name)
@@ -858,6 +844,8 @@ UI
     Adds a label element to "Misc", "JAVASCRIPT", "Script Items".
 
     :param string text: The text to add
+    :returns: A Reference to the element
+    :return type: :js:class:`Reference`
 
 .. js:function:: AddDropdown(name, options)
 
@@ -867,12 +855,14 @@ UI
 
     .. code:: js
 
-        UI.AddDropdown("sample dropdown", ["option 1", "option 2"])
-
-        UI.GetValue("Misc", "JAVASCRIPT", "Script Items", "sample dropdown") == 0 // selected by default
+        reference = UI.AddDropdown("sample dropdown", ["option 1", "option 2"])
+        reference.GetValue() == 0 // selected by default
 
     :param string name: Name of the dropdown
-    :param Sequence[string] options: Sequence(array) of options
+    :param options: Array of options
+    :type options: Array[options]
+    :returns: A Reference to the element
+    :return type: :js:class:`Reference`
 
 .. js:function:: AddMultiDropdown(name, options)
 
@@ -882,12 +872,12 @@ UI
 
     .. code:: js
 
-        UI.AddMultiDropdown("sample dropdown", ["option 1", "option 2"])
-
-        UI.GetValue("Misc", "JAVASCRIPT", "Script Items", "sample dropdown") == [] // empty list because nothing is selected
+        reference = UI.AddMultiDropdown("sample dropdown", ["option 1", "option 2"])
+        reference.GetValue() == [] // empty list because nothing is selected
 
     :param string name: Name of the multidropdown
-    :param Sequence[string] options: Sequence(array) of options
+    :param options: Array of options
+    :type options: Array[options]
 
 .. js:function:: AddColorPicker(name)
 
@@ -900,52 +890,6 @@ UI
     Adds a textbox element to "Misc", "JAVASCRIPT", "Script Items".
 
     :param string name: Name of the textbox
-
-.. js:function:: SetEnabled(...path, value)
-
-    Enables/disables the element at the specified path.
-
-    :param string ...path: Path to the element
-    :param boolean value: Whether to enable or disable
-
-.. js:function:: GetString(...path)
-
-    Returns the value of the textbox element at the specified path.
-
-    :param string ...path: Path of the element
-    :returns: The value of the element
-    :return type: string
-
-.. js:function:: GetColor(...path)
-
-    Returns the value of the colorpicker element at the specified path.
-
-    :param string ...path: Path of the element
-    :returns: The value of the element
-    :return type: Color
-
-.. js:function:: SetColor(...path, color)
-
-    Sets the value of the colorpicker element at the specified path to the color.
-    
-    :param string ...path: Path of the element
-    :param Color color: New color
-
-.. js:function:: IsHotkeyActive(...path)
-
-    Returns if the specified hotkey is being held/pressed.
-
-    :param string ...path: Path of the element
-    :returns: If the hotkey is being pressed
-    :return type: boolean
-
-.. js:function:: ToggleHotkey(...path)
-
-    Simulates pressing the hotkey for the element at the specified path.
-
-    :param string ...path: Path of the element
-    :returns: New state of the hotkey, 1 is active, 0 means inactive
-    :return type: integer
 
 .. js:function:: IsMenuOpen()
 
@@ -1037,46 +981,46 @@ Event
     :return type: string
 
 
-Entity
--------
+Entities
+---------
 
-.. js:module:: Entity
+.. js:module:: Entities
 
 .. js:function:: GetEntities()
 
     Returns all entities.
 
     :returns: All entities
-    :return type: Sequence[integer]
+    :return type: Array[:js:class:`Entity`]
 
 .. js:function:: GetEntitiesByClassID(classid)
 
     Returns all entities with a matching class id.
 
     :param integer classid: classid
-    :returns: Index of all matching entities
-    :return type: integer
+    :returns: All matching entities
+    :return type: :js:class:`Entity`
 
 .. js:function:: GetPlayers()
 
     Returns all players.
 
-    :returns: All playerindexes
-    :return type: Sequence[integer]
+    :returns: All players
+    :return type: Array[:js:class:`Entity`]
 
 .. js:function:: GetEnemies()
 
     Returns all players in the enemy team.
 
-    :returns: All enemyindexes
-    :return type: Sequence[integer]
+    :returns: All enemies
+    :return type: Array[:js:class:`Entity`]
 
 .. js:function:: GetTeammates()
 
     Returns all players your team.
 
-    :returns: All teammateindexes
-    :return type: Sequence[integer]
+    :returns: All teammates
+    :return type: Array[:js:class:`Entity`]
 
 .. js:function:: GetLocalPlayer()
 
@@ -1087,168 +1031,18 @@ Entity
 
 .. js:function:: GetGameRulesProxy()
 
-    Returns entityindex of the game rules entity
+    Returns the game rules entity
     
-    :returns: Entityindex
-    :return type: integer
+    :returns: Entity of the game rules
+    :return type: :js:class:`Entity`
 
 .. js:function:: GetEntityFromUserID(userid)
 
     Returns the player with the userid.
 
     :param string userid: Userid of the player to find
-    :returns: Entityindexs matching the userid
-    :return type: integer
-
-.. js:function:: IsTeammate(entityindex)
-
-    Returns if the entity is a teammate.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: Entity is a teammate
-    :return type: boolean
-
-.. js:function:: IsEnemy(entityindex)
-
-    Returns if the entity is an enemy.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: Entity is an enemy
-    :return type: boolean
-
-.. js:function:: IsBot(entityindex)
-
-    Returns if the entity is a bot.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: Entity is a bot
-    :return type: boolean
-
-.. js:function:: IsLocalPlayer(entityindex)
-
-    Returns if the entityindex matches yourself.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: Entity is yourself
-    :return type: boolean
-
-.. js:function:: IsValid(entityindex)
-
-    Returns if the entityindex is valid.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: Entity is valid
-    :return type: boolean
-
-.. js:function:: IsAlive(entityindex)
-
-    Returns if the entity is alive.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: Entity is alive
-    :return type: boolean
-
-.. js:function:: IsDormant(entityindex)
-
-    Returns if the entity is dormant.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: Entity is dormant
-    :return type: boolean
-
-.. js:function:: GetClassID(entityindex)
-
-    Returns the class id of the class the entity belongs to.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: Class id of the entity
-    :return type: integer
-
-.. js:function:: GetClassName(entityindex)
-
-    Returns the name of the class the entity belongs to.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: Class name of the entity
-    :return type: string
-
-.. js:function:: GetName(entityindex)
-
-    Returns the name of the entity.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: Name of the entity
-    :return type: string
-
-.. js:function:: GetWeapon(entityindex)
-
-    Returns the current held weapon entity.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: Helt weapon
-    :return type: integer
-
-.. js:function:: GetWeapons(entityindex)
-
-    Returns all weapons the entity has.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: All weapons from the entity
-    :return type: integer
-
-.. js:function:: GetRenderOrigin(entityindex)
-
-    Returns position of the entity.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: Position of the entity
-    :return type: Vector3
-
-.. js:function:: GetRenderBox(entityindex)
-
-    Returns the render box of the entity.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: An array comprising of: valid/invalid (boolean), min X, min Y, max X, max Y
-    :return type: Array
-
-.. js:function:: GetProp(entityindex, table, propname)
-
-    Returns the value of the prop of the entity.
-    `classname` must be the name of the entity's class, e.g. `CCSPlayer` for players.
-
-    :param integer entityindex: Entityindex of the entity
-    :param string table: Name of entity's class
-    :param string propname: Name of the prop
-    :returns: The value
-    :return type: Any
-
-.. js:function:: SetProp(entityindex, classname, propname, value)
-
-    Sets the value of the prop of the entity.
-    `classname` must be the name of the entity's class, e.g. `CCSPlayer` for players.
-
-    :param integer entityindex: Entityindex of the entity
-    :param string classname: Name of entity's class
-    :param string propname: Name of the prop
-    :param Any value: The value
-
-.. js:function:: GetHitboxPosition(entityindex, hitboxindex)
-
-    Returns position of the hitbox.
-
-    :param integer entityindex: Entityindex of the entity
-    :param integer hitgroup: Hitboxindex of the hitbox
-    :returns: Position of the hitbox
-    :return type: Vector3
-
-.. js:function:: GetEyePosition(entityindex)
-
-    Returns position of the eye hitbox.
-
-    :param integer entityindex: Entityindex of the entity
-    :returns: Position of the eye hitbox
-    :return type: Vector3
+    :returns: Entity matching the userid
+    :return type: :js:class:`Entity`
 
 
 Trace
@@ -1261,8 +1055,10 @@ Trace
     Traces a line between start and end
 
     :param integer entityindex: Entityindex of the entity
-    :param Vector3 start: Start of the trace
-    :param Vector3 end: End of the trace
+    :param start: Start of the trace
+    :type start: :js:class:`Vector3`
+    :param end: End of the trace
+    :type end: :js:class:`Vector3`
     :returns: What it hit
     :return type: Array[target, fraction]
 
@@ -1283,20 +1079,22 @@ UserCMD
 
     Sets the movement for the current move command.
 
-    :param Vector3 movement: The new movement
+    :param movement: The new movement
+    :type movement: :js:class:`Vector3`
 
 .. js:function:: GetMovement()
 
     Returns the planned movement for the current move command.
     
     :returns: The movement
-    :return type: Vector3
+    :return type: :js:class:`Vector3`
 
 .. js:function:: SetAngles(angles)
 
     Sets the viewangles for the current move command.
 
-    :param Vector3 angles: The angles
+    :param angles: The angles
+    :type angles: :js:class:`Angles`
 
     .. note:: You can use :js:func:`Local.GetViewAngles` to get them.
 
@@ -1452,10 +1250,10 @@ Ragebot
     :param integer hitboxindex: Hitboxindex of the hitbox
 
 
-Material
----------
+Materials
+----------
 
-.. js:module:: Material
+.. js:module:: Materials
 
 .. js:function:: Create(name)
 
@@ -1463,15 +1261,7 @@ Material
 
     :param string name: Name of the material
     :returns: If the creation was successful
-    :return type: boolean
-
-.. js:function:: Destroy(name)
-
-    Destroys a material.
-
-    :param string name: Name of the material
-    :returns: If the destruction was successful
-    :return type: boolean
+    :return type: :js:class:`Material`
 
 .. js:function:: Get(name)
 
@@ -1482,30 +1272,4 @@ Material
 
     :param string name: Name of the material
     :returns: Materialindex
-    :return type: integer
-
-.. js:function:: SetKeyValue(materialindex, key, value)
-
-    Overrides values of the material.
-
-    .. note::
-        See also:
-
-            - https://developer.valvesoftware.com/wiki/Category:List_of_Shader_Parameters
-            - https://developer.valvesoftware.com/wiki/VertexLitGeneric
-
-    .. note::
-        Can only be used during a :js:func:`Material` callback.
-
-    :param integer materialindex: Materialindex of the material
-    :param string key: Key
-    :param string value: value
-
-.. js:function:: Refresh(materialindex)
-
-    Refreshes the material with the new values from :js:func:`Material.SetKeyValue`.
-
-    .. note::
-        Can only be used during a :js:func:`Material` callback.
-
-    :param integer materialindex: Materialindex of the material
+    :return type: :js:class:`Material`
