@@ -23,6 +23,7 @@ with tempfile.TemporaryDirectory() as tmp:
     shutil.copy('docs/_build/html', tmp)
     r(['git', 'checkout', '--', '.'])  # discard changes/html
     r(['git', 'checkout', 'gh-pages'])
+    r(['git', 'pull'])
     shutil.copy(tmp, 'docs')
 
 print('Deploying to Github')
@@ -33,6 +34,7 @@ r(['git', 'add', '-A'])
 
 changes = r(['git', 'status', '--porcelain'], check_output=True).strip()
 if changes:  # only commit when there're changes
+    print('Pushing to github')
     r(
         [
             'git', 'commit', '-m',
