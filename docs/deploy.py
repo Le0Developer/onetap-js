@@ -41,9 +41,8 @@ if changes:  # only commit when there're changes
     print('Pushing to github')
     r(
         [
-            'git', 'commit', '-m', f'deployment of {g("GITHUB_SHA")}', 
-            '--force'
+            'git', 'commit', '-m', f'deployment of {g("GITHUB_SHA")}'
         ]
     )
 
-    r(['git', 'push'])
+    r(['git', 'push', '--force'])
