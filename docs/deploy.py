@@ -31,7 +31,8 @@ with tempfile.TemporaryDirectory() as tmp:
 
 print('Deploying to Github')
 r(['git', 'config', '--global', 'user.name', g('GITHUB_ACTOR')])
-r(['git', 'config', '--global', 'user.email', g('GITHUB_ACTOR') + '@users.noreply.github.com'])
+r(['git', 'config', '--global', 'user.email', 
+   g('GITHUB_ACTOR') + '@users.noreply.github.com'])
 
 r(['git', 'add', '-A'])
 
@@ -40,8 +41,8 @@ if changes:  # only commit when there're changes
     print('Pushing to github')
     r(
         [
-            'git', 'commit', '-m',
-            f'deployment of {g("GITHUB_SHA")}'
+            'git', 'commit', '-m', f'deployment of {g("GITHUB_SHA")}', 
+            '--force'
         ]
     )
 
