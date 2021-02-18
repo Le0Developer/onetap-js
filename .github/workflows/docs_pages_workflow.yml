@@ -16,7 +16,7 @@ jobs:
         apt-get update
         apt-get install -y git
     - uses: actions/checkout@v2.3.4
-      width:
+      with:
         fetch-depth: 0
 
     - name: Install dependencies
