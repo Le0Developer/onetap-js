@@ -1,7 +1,7 @@
 
 import os
-import pathlib
 import subprocess
+import shutil
 import tempfile
 
 
@@ -14,51 +14,20 @@ def r(*args, check_output=False, **kwargs):
 p = pathlib.Path(__file__).parent
 g = os.getenv
 
-missing_env = [
-    x
-    for x in ('GITHUB_ACTOR', 'GITHUB_TOKEN', 'GITHUB_REPOSITORY')
-    if x not in os.environ 
-]
 
-if missing_env:
-    print('Missing following enviroment variables: ' + ', '.join(missing_env))
-    exit(1)
+print('Building')
+r(['make', 'html'], cwd='docs')
 
-
-branches = [
-    x.strip()
-    for x in r(['git', 'for-each-ref', '--format=%(refname:lstrip=-1)',
-                'refs/remotes/origin'], check_output=True).splitlines()
-    if x.strip() not in ('HEAD', 'gh-pages')
-]
-commit_shas = []
-
-# save to temporary directory, so we can keep changing branches
 with tempfile.TemporaryDirectory() as tmp:
     tmp = pathlib.Path(tmp)
-
-    for branch in branches:
-        print(f'Building for branch: {branch}')
-        r(['git', 'checkout', branch])
-        sha = r(['git', 'rev-parse', 'HEAD'], check_output=True).strip()
-        commit_shas.append(f'{branch} at {sha}')
-        r(['sphinx-build', '-b', 'html', str(p), str(tmp / 'en' / branch)])
-
-    r(['git', 'checkout', '-b', 'gh-pages'])
-    r(['cp', '-r', str(tmp) + '/', '.'])
-
+    shutil.copy('docs/_build/html', tmp)
+    r(['git', 'checkout', '--', '.'])  # discard changes/html
+    r(['git', 'checkout', 'gh-pages'])
+    shutil.copy(tmp, 'docs')
 
 print('Deploying to Github')
 r(['git', 'config', '--global', 'user.name', g('GITHUB_ACTOR')])
 r(['git', 'config', '--global', 'user.email', g('GITHUB_ACTOR') + '@users.noreply.github.com'])
-
-r(
-    [
-        'git', 'remote', 'add', 'deploy',
-        f'https://token:{g("GITHUB_TOKEN")}@'
-        f'github.com/{g("GITHUB_REPOSITORY")}.git'
-     ]
-)
 
 r(['git', 'add', '-A'])
 
@@ -67,8 +36,8 @@ if changes:  # only commit when there're changes
     r(
         [
             'git', 'commit', '-m',
-            f'deployment of latest push to master\n\n{"".join(commit_shas)}'
+            f'deployment of {g("GITHUB_SHA")}'
         ]
     )
 
-    r(['git', 'push', 'deploy', 'gh-pages'])
+    r(['git', 'push'])
