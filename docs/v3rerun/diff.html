@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Differences: Onetap v3 vs Onetap v3 Re:Run &#8212; Onetap.com Javascript  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/global.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="differences-onetap-v3-vs-onetap-v3-re-run">
+<h1>Differences: Onetap v3 vs Onetap v3 Re:Run<a class="headerlink" href="#differences-onetap-v3-vs-onetap-v3-re-run" title="Permalink to this headline">¶</a></h1>
+<p>The Onetap v3 <strong>Re</strong>mastered <strong>Run</strong>time is a project to make the onetap
+runtime better, remove code, simplify code and make it more intuitive.</p>
+<p>If you ever need the original runtime for any reason, you can use the <cite>__reality</cite> module.
+(e.g. <cite>__reality.Entity.GetName(index)</cite>)</p>
+<div class="section" id="re-run-removes-the-global-module">
+<h2>Re:Run removes the <cite>Global</cite> module<a class="headerlink" href="#re-run-removes-the-global-module" title="Permalink to this headline">¶</a></h2>
+<p>The usage of the <cite>Global</cite> module was discouraged in our documentation and has
+been removed in Re:Run to simplify the runtime.</p>
+</div>
+<div class="section" id="re-run-adds-proper-classes">
+<h2>Re:Run adds proper Classes<a class="headerlink" href="#re-run-adds-proper-classes" title="Permalink to this headline">¶</a></h2>
+<p>Re:Run adds classes because <cite>Entity</cite>, <cite>Ragebot</cite>, or <cite>UI</cite> always need annoying
+arguments.</p>
+<ul>
+<li><p><a class="reference internal" href="globals.html#Reference" title="Reference"><code class="xref js js-class docutils literal notranslate"><span class="pre">Reference()</span></code></a></p>
+<blockquote>
+<div><p>An instance of a <a class="reference internal" href="globals.html#Reference" title="Reference"><code class="xref js js-class docutils literal notranslate"><span class="pre">Reference()</span></code></a> class is a reference to an element
+in the Onetap UI and greatly removes unneeded code.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Normal runtime</span>
+<span class="nx">UI</span><span class="p">.</span><span class="nx">AddCheckbox</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">);</span>
+<span class="nx">UI</span><span class="p">.</span><span class="nx">GetValue</span><span class="p">(</span><span class="s2">&quot;Misc&quot;</span><span class="p">,</span> <span class="s2">&quot;JAVASCRIPT&quot;</span><span class="p">,</span> <span class="s2">&quot;Script Items&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">);</span>  <span class="c1">// -&gt; true</span>
+
+<span class="c1">// Re:Run</span>
+<span class="nx">reference</span> <span class="o">=</span> <span class="nx">UI</span><span class="p">.</span><span class="nx">AddCheckbox</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">);</span>
+<span class="nx">reference</span><span class="p">.</span><span class="nx">GetValue</span><span class="p">();</span> <span class="c1">// -&gt; true</span>
+
+<span class="c1">// reference to existing element</span>
+<span class="nx">reference</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s2">&quot;Anti-Aim&quot;</span><span class="p">,</span> <span class="s2">&quot;Fake-Lag&quot;</span><span class="p">,</span> <span class="s2">&quot;Enabled&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><a class="reference internal" href="globals.html#Entity" title="Entity"><code class="xref js js-class docutils literal notranslate"><span class="pre">Entity()</span></code></a></p>
+<blockquote>
+<div><p>An instance of an <a class="reference internal" href="globals.html#Entity" title="Entity"><code class="xref js js-class docutils literal notranslate"><span class="pre">Entity()</span></code></a> class is a reference to an entityindex.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Normal runtime</span>
+<span class="nx">players</span> <span class="o">=</span> <span class="nx">Entity</span><span class="p">.</span><span class="nx">GetPlayers</span><span class="p">();</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">ref</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">player</span> <span class="o">=</span> <span class="nx">players</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="nx">Cheat</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">Entity</span><span class="p">.</span><span class="nx">GetName</span><span class="p">(</span><span class="nx">player</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Re:Run</span>
+<span class="nx">players</span> <span class="o">=</span> <span class="nx">Entities</span><span class="p">.</span><span class="nx">GetPlayers</span><span class="p">();</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">ref</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">player</span> <span class="o">=</span> <span class="nx">players</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="nx">Cheat</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">player</span><span class="p">.</span><span class="nx">GetName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// from entityindex</span>
+<span class="nx">player</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Entity</span><span class="p">(</span><span class="nx">index</span><span class="p">);</span>
+<span class="nx">Cheat</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">player</span><span class="p">.</span><span class="nx">GetName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The original <cite>Entity</cite> module has been renamed to <cite>Entities</cite></p>
+</div>
+</div></blockquote>
+</li>
+<li><p><a class="reference internal" href="globals.html#Material" title="Material"><code class="xref js js-class docutils literal notranslate"><span class="pre">Material()</span></code></a></p>
+<blockquote>
+<div><p>An instance of a <a class="reference internal" href="globals.html#Material" title="Material"><code class="xref js js-class docutils literal notranslate"><span class="pre">Material()</span></code></a> class is a reference to a material.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Normal runtime</span>
+<span class="nx">Material</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">);</span>
+<span class="nx">index</span> <span class="o">=</span> <span class="nx">Material</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">);</span>
+<span class="nx">Material</span><span class="p">.</span><span class="nx">SetKeyValue</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">);</span>
+<span class="nx">Material</span><span class="p">.</span><span class="nx">Refresh</span><span class="p">(</span><span class="nx">index</span><span class="p">);</span>
+<span class="nx">Material</span><span class="p">.</span><span class="nx">Destroy</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">);</span>
+
+<span class="c1">// Re:Run</span>
+<span class="nx">material</span> <span class="o">=</span> <span class="nx">Materials</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+<span class="nx">material</span><span class="p">.</span><span class="nx">SetKeyValue</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">);</span>
+<span class="nx">material</span><span class="p">.</span><span class="nx">Refresh</span><span class="p">();</span>
+<span class="nx">material</span><span class="p">.</span><span class="nx">Destroy</span><span class="p">();</span>
+
+<span class="c1">// without Create()</span>
+<span class="c1">// both are equivalent</span>
+<span class="nx">material</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Material</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">);</span>
+<span class="nx">material</span> <span class="o">=</span> <span class="nx">Materials</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><a class="reference internal" href="globals.html#Vector2" title="Vector2"><code class="xref js js-class docutils literal notranslate"><span class="pre">Vector2()</span></code></a>, <a class="reference internal" href="globals.html#Vector3" title="Vector3"><code class="xref js js-class docutils literal notranslate"><span class="pre">Vector3()</span></code></a>, <a class="reference internal" href="globals.html#Angles" title="Angles"><code class="xref js js-class docutils literal notranslate"><span class="pre">Angles()</span></code></a>, <a class="reference internal" href="globals.html#RGBA" title="RGBA"><code class="xref js js-class docutils literal notranslate"><span class="pre">RGBA()</span></code></a></p>
+<blockquote>
+<div><p>All functions will return the appropiate instance of either
+<a class="reference internal" href="globals.html#Vector2" title="Vector2"><code class="xref js js-class docutils literal notranslate"><span class="pre">Vector2()</span></code></a>, <a class="reference internal" href="globals.html#Vector3" title="Vector3"><code class="xref js js-class docutils literal notranslate"><span class="pre">Vector3()</span></code></a>, <a class="reference internal" href="globals.html#Angles" title="Angles"><code class="xref js js-class docutils literal notranslate"><span class="pre">Angles()</span></code></a> or
+<a class="reference internal" href="globals.html#RGBA" title="RGBA"><code class="xref js js-class docutils literal notranslate"><span class="pre">RGBA()</span></code></a> if it makes sense.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="re-run-simplifies-callbacks">
+<h2>Re:Run simplifies Callbacks<a class="headerlink" href="#re-run-simplifies-callbacks" title="Permalink to this headline">¶</a></h2>
+<p>Instead of having to create your callback function as a global variable, why
+not give it directly to <cite>Cheat.RegisterCallback</cite> ?</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Normal runtime</span>
+<span class="kd">function</span> <span class="nx">onCreateMove</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// called every tick</span>
+<span class="p">};</span>
+<span class="nx">Cheat</span><span class="p">.</span><span class="nx">RegisterCallback</span><span class="p">(</span><span class="s2">&quot;CreateMove&quot;</span><span class="p">,</span> <span class="s2">&quot;onCreateMove&quot;</span><span class="p">);</span>
+
+<span class="c1">// Re:Run</span>
+<span class="nx">Cheat</span><span class="p">.</span><span class="nx">RegisterCallback</span><span class="p">(</span><span class="s2">&quot;CreateMove&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// called every tick</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>Re:Run also includes an exception handler for callbacks, because Onetap
+silently eats all errors in callbacks.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Normal runtime</span>
+<span class="kd">function</span> <span class="nx">onCreateMove</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">);</span>  <span class="c1">// throw an error</span>
+<span class="p">};</span>
+<span class="nx">Cheat</span><span class="p">.</span><span class="nx">RegisterCallback</span><span class="p">(</span><span class="s2">&quot;CreateMove&quot;</span><span class="p">,</span> <span class="s2">&quot;onCreateMove&quot;</span><span class="p">);</span>
+<span class="c1">// silently eats all errors</span>
+
+<span class="c1">// Re:Run</span>
+<span class="nx">Cheat</span><span class="p">.</span><span class="nx">RegisterCallback</span><span class="p">(</span><span class="s2">&quot;CreateMove&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">);</span>  <span class="c1">// throw an error</span>
+<span class="p">})</span>
+<span class="c1">// in console: [Onetap Re:Run] Error occured in CreateMove callback: Hello World</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Onetap.com Javascript</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=le0developer&repo=onetap-js&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;Copyright 2021, Leo Developer.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/v3rerun/diff.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/le0developer/onetap-js" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>
