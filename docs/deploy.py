@@ -21,11 +21,11 @@ r(['make', 'html'], cwd='docs')
 
 with tempfile.TemporaryDirectory() as tmp:
     tmp = Path(tmp)
-    shutil.copytree('docs/_build/main/html', tmp)
+    shutil.copytree('docs/_build/main/html', tmp / 'docs')
     r(['git', 'checkout', '--', '.'])  # discard changes/html
     r(['git', 'checkout', 'gh-pages'])
     r(['git', 'pull'])
-    shutil.copytree(tmp, 'docs')
+    shutil.copytree(tmp / 'docs', 'docs')
 
 print('Deploying to Github')
 r(['git', 'config', '--global', 'user.name', g('GITHUB_ACTOR')])
