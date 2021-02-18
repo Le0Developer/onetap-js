@@ -1,4 +1,5 @@
 
+from pathlib import Path
 import os
 import subprocess
 import shutil
@@ -11,7 +12,7 @@ def r(*args, check_output=False, **kwargs):
     return subprocess.call(*args, **kwargs)
 
 
-p = pathlib.Path(__file__).parent
+p = Path(__file__).parent
 g = os.getenv
 
 
@@ -19,7 +20,7 @@ print('Building')
 r(['make', 'html'], cwd='docs')
 
 with tempfile.TemporaryDirectory() as tmp:
-    tmp = pathlib.Path(tmp)
+    tmp = Path(tmp)
     shutil.copy('docs/_build/html', tmp)
     r(['git', 'checkout', '--', '.'])  # discard changes/html
     r(['git', 'checkout', 'gh-pages'])
