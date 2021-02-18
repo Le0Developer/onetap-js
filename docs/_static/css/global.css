@@ -1,0 +1,15 @@
+dl {
+    margin-bottom: 8px;
+}
+dl.js.attribute {
+    margin-left: 40px;
+}
+dl.js.method {
+    margin-left: 40px;
+}
+dl.js.attribute .descclassname {
+    display: none;
+}
+dl.js.method .descclassname {
+    display: none;
+}

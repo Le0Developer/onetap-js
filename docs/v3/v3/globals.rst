@@ -1,4 +1,4 @@
-Onetap.com Javascript globals
+Onetap v3 Javascript globals
 =============================
 
 .. js:data:: __filename
@@ -8,7 +8,7 @@ Onetap.com Javascript globals
     :type: string
 
 Global
-------
+-------
 
 .. warning:: 
 
@@ -110,7 +110,7 @@ Global
 
 
 Globals
--------
+--------
 
 .. js:module:: Globals
 
@@ -161,13 +161,13 @@ Globals
 
 .. js:function:: Frametime()
 
-    Returns the last frame took to render.
+    Returns the time the last frame took to render.
 
     :returns: Time in seconds
     :return type: float
 
 Sound
------
+------
 
 .. js:module:: Sound
 
@@ -189,7 +189,7 @@ Sound
 
 
 Cheat
------
+------
 
 .. js:module:: Cheat
 
@@ -289,7 +289,7 @@ Cheat
 
 
 Local
------
+------
 
 .. js:module:: Local
 
@@ -359,7 +359,7 @@ Local
 
 
 World
------
+------
 
 .. js:module:: World
 
@@ -385,7 +385,7 @@ World
     :return type: string
 
 Input
------
+------
 
 .. js:module:: Input
 
@@ -406,7 +406,7 @@ Input
 
 
 Render
-------
+-------
 
 .. js:module:: Render
 
@@ -471,7 +471,8 @@ Render
     :param integer y: y position
     :param integer width: width
     :param integer height: height
-    :param Color color: Color
+    :param Color color1: First color
+    :param Color color2: Second color
 
 .. js:function:: Circle(x, y, r, color)
 
@@ -495,7 +496,7 @@ Render
         }
         Cheat.RegisterCallback("Draw", "onDraw");
 
-    :param Sequence[Vector2] points: The 3 corners
+    :param Array[Vector2] points: The 3 corners
     :param Color color: Color
 
 .. js:function:: WorldToScreen(position)
@@ -572,7 +573,7 @@ Render
     :return type: Vector2
 
 UI
---
+---
 
 .. js:module:: UI
 
@@ -657,7 +658,8 @@ UI
         UI.GetValue("Misc", "JAVASCRIPT", "Script Items", "sample dropdown") == 0 // selected by default
 
     :param string name: Name of the dropdown
-    :param Sequence[string] options: Sequence(array) of options
+    :param options: Array of options
+    :type options: Array[options]
 
 .. js:function:: AddMultiDropdown(name, options)
 
@@ -672,7 +674,8 @@ UI
         UI.GetValue("Misc", "JAVASCRIPT", "Script Items", "sample dropdown") == [] // empty list because nothing is selected
 
     :param string name: Name of the multidropdown
-    :param Sequence[string] options: Sequence(array) of options
+    :param options: Array of options
+    :type options: Array[options]
 
 .. js:function:: AddColorPicker(name)
 
@@ -741,7 +744,7 @@ UI
 
 
 Convar
-------
+-------
 
 .. js:module:: Convar
 
@@ -792,7 +795,7 @@ Convar
 
 
 Event
------
+------
 
 .. js:module:: Event
 
@@ -823,7 +826,7 @@ Event
 
 
 Entity
-------
+-------
 
 .. js:module:: Entity
 
@@ -832,7 +835,7 @@ Entity
     Returns all entities.
 
     :returns: All entities
-    :return type: Sequence[integer]
+    :return type: Array[integer]
 
 .. js:function:: GetEntitiesByClassID(classid)
 
@@ -847,21 +850,21 @@ Entity
     Returns all players.
 
     :returns: All playerindexes
-    :return type: Sequence[integer]
+    :return type: Array[integer]
 
 .. js:function:: GetEnemies()
 
     Returns all players in the enemy team.
 
     :returns: All enemyindexes
-    :return type: Sequence[integer]
+    :return type: Array[integer]
 
 .. js:function:: GetTeammates()
 
     Returns all players your team.
 
     :returns: All teammateindexes
-    :return type: Sequence[integer]
+    :return type: Array[integer]
 
 .. js:function:: GetLocalPlayer()
 
@@ -970,7 +973,7 @@ Entity
     Returns the current held weapon entity.
 
     :param integer entityindex: Entityindex of the entity
-    :returns: Helt weapon
+    :returns: Held weapon
     :return type: integer
 
 .. js:function:: GetWeapons(entityindex)
@@ -978,8 +981,8 @@ Entity
     Returns all weapons the entity has.
 
     :param integer entityindex: Entityindex of the entity
-    :returns: All weapons from the entity
-    :return type: integer
+    :returns: All weapons of the entity
+    :return type: Array[integer]
 
 .. js:function:: GetRenderOrigin(entityindex)
 
@@ -1000,7 +1003,7 @@ Entity
 .. js:function:: GetProp(entityindex, table, propname)
 
     Returns the value of the prop of the entity.
-    `classname` must be the name of the entity's class, e.g. `CCSPlayer` for players.
+    `table` is most of the time the name of the entity's class, e.g. `CCSPlayer` for players.
 
     :param integer entityindex: Entityindex of the entity
     :param string table: Name of entity's class
@@ -1008,13 +1011,13 @@ Entity
     :returns: The value
     :return type: Any
 
-.. js:function:: SetProp(entityindex, classname, propname, value)
+.. js:function:: SetProp(entityindex, table, propname, value)
 
     Sets the value of the prop of the entity.
-    `classname` must be the name of the entity's class, e.g. `CCSPlayer` for players.
+    `table` is most of the time the name of the entity's class, e.g. `CCSPlayer` for players.
 
     :param integer entityindex: Entityindex of the entity
-    :param string classname: Name of entity's class
+    :param string table: Name of entity's class
     :param string propname: Name of the prop
     :param Any value: The value
 
@@ -1037,7 +1040,7 @@ Entity
 
 
 Trace
------
+------
 
 .. js:module:: Trace
 
@@ -1057,7 +1060,7 @@ Trace
 
 
 UserCMD
--------
+--------
 
 .. js:module:: UserCMD
 
@@ -1099,7 +1102,7 @@ UserCMD
 
 
 AntiAim
--------
+--------
 
 .. js:module:: AntiAim
 
@@ -1144,7 +1147,7 @@ AntiAim
 
 
 Exploit
--------
+--------
 
 .. js:module:: Exploit
 
@@ -1169,7 +1172,7 @@ Exploit
 
 
 Ragebot
--------
+--------
 
 .. js:module:: Ragebot
 
@@ -1238,7 +1241,7 @@ Ragebot
 
 
 Material
---------
+---------
 
 .. js:module:: Material
 

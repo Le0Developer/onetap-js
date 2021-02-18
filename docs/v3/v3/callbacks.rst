@@ -1,11 +1,11 @@
 
-Onetap.com Javascript callbacks
+Onetap v3 Javascript callbacks
 ===============================
 
 Callbacks that can be registered using :js:func:`Cheat.RegisterCallback`.
 
 Cheat Events
-------------
+-------------
 
 .. js:function:: CreateMove()
 
@@ -35,7 +35,7 @@ Cheat Events
 
 
 CS:GO Events
-------------
+-------------
 
 You can use all `CS:GO events <https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events>`_ as callbacks.
 
@@ -53,7 +53,7 @@ Example:
 
 
 Special Cheat Events
---------------------
+---------------------
 
 Cheat events which use :js:mod:`Event` to distribute their settings.
 

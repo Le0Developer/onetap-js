@@ -25,7 +25,11 @@ if errorlevel 9009 (
 	exit /b 1
 )
 
-%SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+%SPHINXBUILD% -M %1 "main" "_build/main" %SPHINXOPTS% %O%
+%SPHINXBUILD% -M %1 "v3" "_build/v3" %SPHINXOPTS% %O%
+%SPHINXBUILD% -M %1 "v3rerun" "_build/v3rerun" %SPHINXOPTS% %O%
+xcopy _build/v3/html/v3/ _build/main/html/v3/ /E
+xcopy _build/v3rerun/html/v3rerun/ _build/main/html/v3rerun/ /E
 goto end
 
 :help
