@@ -25,6 +25,8 @@ with tempfile.TemporaryDirectory() as tmp:
     r(['git', 'checkout', '--', '.'])  # discard changes/html
     r(['git', 'checkout', 'gh-pages'])
     r(['git', 'pull'])
+    if os.path.exists('docs'):
+        shutil.rmtree('docs')
     shutil.copytree(tmp / 'docs', 'docs')
 
 print('Deploying to Github')
