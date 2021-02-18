@@ -378,7 +378,7 @@ Globals
 
 .. js:function:: Frametime()
 
-    Returns the last frame took to render.
+    Returns the time the last frame took to render.
 
     :returns: Time in seconds
     :return type: float
