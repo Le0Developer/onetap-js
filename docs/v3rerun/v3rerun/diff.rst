@@ -49,14 +49,14 @@ arguments.
 
         // Normal runtime
         players = Entity.GetPlayers();
-        for (i = 0, len = ref.length; i < len; i++) {
+        for (i = 0, len = players.length; i < len; i++) {
             player = players[i];
             Cheat.Print(Entity.GetName(player) + "\n");
         }
 
         // Re:Run
         players = Entities.GetPlayers();
-        for (i = 0, len = ref.length; i < len; i++) {
+        for (i = 0, len = players.length; i < len; i++) {
             player = players[i];
             Cheat.Print(player.GetName() + "\n");
         }
