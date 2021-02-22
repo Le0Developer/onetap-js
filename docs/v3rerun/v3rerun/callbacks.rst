@@ -70,6 +70,12 @@ Cheat events which use :js:mod:`Event` to distribute their settings.
         +----------------+-----------+-----------------------------------------+
         |  target_index  |  integer  |  Entityindex of the target              |
         +----------------+-----------+-----------------------------------------+
+        |  hitchance     |  integer  |  Hitchance of the shot  (0-100)         |
+        +----------------+-----------+-----------------------------------------+
+        |  safepoint     |  integer  |  Targetting a safepoint                 |
+        +----------------+-----------+-----------------------------------------+
+        |  hitbox        |  integer  |  Targetted Hitboxindex                  |
+        +----------------+-----------+-----------------------------------------+
 
     Example:
 
