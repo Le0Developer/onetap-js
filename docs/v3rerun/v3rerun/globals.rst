@@ -1027,7 +1027,7 @@ Entities
     Returns the index of yourself.
 
     :returns: Yourself
-    :return type: integer
+    :return type: :js:class:`Entity`
 
 .. js:function:: GetGameRulesProxy()
 
