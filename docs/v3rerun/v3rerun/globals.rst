@@ -838,6 +838,8 @@ UI
     Adds a hotkey element to "Misc", "JAVASCRIPT", "Script Items".
 
     :param string name: Name of the hotkey
+    :returns: A Reference to the element
+    :return type: :js:class:`Reference`
 
 .. js:function:: AddLabel(text)
 
