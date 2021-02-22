@@ -157,7 +157,7 @@ return ->
             WorldToScreen: (position) -> Vector2.unpack realglobals.Render.WorldToScreen packer position
             AddFont: realglobals.Render.AddFont
             FindFont: realglobals.Render.FindFont
-            StringCustom: (x, y, align, text, color, font) -> realglobals.Render.StringCustom x, y, aligh, text, packer(color), font
+            StringCustom: (x, y, align, text, color, font) -> realglobals.Render.StringCustom x, y, align, text, packer(color), font
             TexturedRect: realglobals.Render.TexturedRect
             AddTexture: realglobals.Render.AddTexture
             TextSizeCustom: realglobals.Render.TextSizeCustom
