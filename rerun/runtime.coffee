@@ -201,7 +201,7 @@ return ->
             ForceTargetSafety: (ent) -> realglobals.Ragebot.ForceTargetSafety ent.entityindex
             ForceTargetHitchance: (ent, hitchance) -> realglobals.Ragebot.ForceTargetHitchance ent.entityindex, hitchance
             ForceTargetMinimumDamage: (ent, minimum_damage) -> realglobals.Ragebot.ForceTargetMinimumDamage ent.entityindex, minimum_damage
-            ForceHitboxSafety: realglobals.Globals.ForceHitboxSafety
+            ForceHitboxSafety: realglobals.Ragebot.ForceHitboxSafety
         Materials:
             Create: (name) ->
                 return false unless realglobals.Material.Create name
