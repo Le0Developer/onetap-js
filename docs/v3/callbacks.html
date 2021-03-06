@@ -98,9 +98,9 @@
 <blockquote>
 <div><table class="docutils align-default">
 <colgroup>
-<col style="width: 24%" />
-<col style="width: 16%" />
-<col style="width: 60%" />
+<col style="width: 21%" />
+<col style="width: 14%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -111,7 +111,7 @@
 <tbody>
 <tr class="row-even"><td><p>exploit</p></td>
 <td><p>integer</p></td>
-<td><p>0 = no dt, 1 = not charged dt, 2 = dt</p></td>
+<td><p>0 = no dt, 1 = 1st dt shot or hideshot, 2 = dt</p></td>
 </tr>
 <tr class="row-odd"><td><p>target_index</p></td>
 <td><p>integer</p></td>
@@ -133,13 +133,54 @@
 </table>
 </div></blockquote>
 <p>Example:</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;disabled&quot;</span><span class="p">,</span> <span class="s2">&quot;not charged&quot;</span><span class="p">,</span> <span class="s2">&quot;used&quot;</span><span class="p">]</span>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;disabled&quot;</span><span class="p">,</span> <span class="s2">&quot;1st dt shot&quot;</span><span class="p">,</span> <span class="s2">&quot;2nd dt shot&quot;</span><span class="p">]</span>
 <span class="kd">function</span> <span class="nx">on_ragebot_fire</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">exploit</span> <span class="o">=</span> <span class="nx">Event</span><span class="p">.</span><span class="nx">GetInt</span><span class="p">(</span><span class="s2">&quot;exploit&quot;</span><span class="p">);</span>
     <span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">Event</span><span class="p">.</span><span class="nx">GetInt</span><span class="p">(</span><span class="s2">&quot;target_index&quot;</span><span class="p">);</span>
-    <span class="nx">Cheat</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="s2">&quot;ragebot shot at &quot;</span> <span class="o">+</span> <span class="nx">Entity</span><span class="p">.</span><span class="nx">GetName</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, doubletap was &quot;</span> <span class="o">+</span> <span class="nx">names</span><span class="p">[</span><span class="nx">exploit</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+    <span class="nx">Cheat</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="s2">&quot;ragebot shot at &quot;</span> <span class="o">+</span> <span class="nx">Entity</span><span class="p">.</span><span class="nx">GetName</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; (&quot;</span> <span class="o">+</span> <span class="nx">names</span><span class="p">[</span><span class="nx">exploit</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;)\n&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="nx">Cheat</span><span class="p">.</span><span class="nx">RegisterCallback</span><span class="p">(</span><span class="s2">&quot;ragebot_fire&quot;</span><span class="p">,</span> <span class="s2">&quot;on_ragebot_fire&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="js function">
+<dt id="player_say">
+<code class="sig-name descname">player_say</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#player_say" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called everytime a player says something.</p>
+<p>Structure:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 20%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>userid</p></td>
+<td><p>integer</p></td>
+<td><p>User id of the message author</p></td>
+</tr>
+<tr class="row-odd"><td><p>chat</p></td>
+<td><p>string</p></td>
+<td><p>Content of the message</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">on_player_say</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">entity</span> <span class="o">=</span> <span class="nx">Entity</span><span class="p">.</span><span class="nx">GetEntityFromUserID</span><span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">GetInt</span><span class="p">(</span><span class="s2">&quot;userid&quot;</span><span class="p">));</span>
+    <span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">Event</span><span class="p">.</span><span class="nx">GetString</span><span class="p">(</span><span class="s2">&quot;chat&quot;</span><span class="p">);</span>
+    <span class="nx">Cheat</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">Entity</span><span class="p">.</span><span class="nx">GetName</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; said &quot;</span> <span class="o">+</span> <span class="nx">message</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">Cheat</span><span class="p">.</span><span class="nx">RegisterCallback</span><span class="p">(</span><span class="s2">&quot;player_say&quot;</span><span class="p">,</span> <span class="s2">&quot;on_player_say&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
