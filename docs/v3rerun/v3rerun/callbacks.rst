@@ -86,5 +86,5 @@ Cheat events which use :js:mod:`Event` to distribute their settings.
         Cheat.RegisterCallback("ragebot_fire", function() {
             var exploit = Event.GetInt("exploit");
             var target = Event.GetInt("target_index");
-            Cheat.Print("ragebot shot at " + Entity.GetName(target) + " (" + names[exploit] + ")\n");
+            Cheat.Print("ragebot shot at " + (new Entity(target)).GetName() + " (" + names[exploit] + ")\n");
         });
