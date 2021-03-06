@@ -89,3 +89,33 @@ Cheat events which use :js:mod:`Event` to distribute their settings.
             Cheat.Print("ragebot shot at " + Entity.GetName(target) + " (" + names[exploit] + ")\n");
         }
         Cheat.RegisterCallback("ragebot_fire", "on_ragebot_fire");
+
+.. js:function:: player_say()
+
+    Called everytime a player says something.
+
+    .. info:: 
+
+        The structure below may be incomplete. 
+        Create an issue if you know about any missing fields.
+
+    Structure:
+
+        +----------+-----------+---------------------------------+
+        |  Name    |  Type     |  Description                    |
+        +==========+===========+=================================+
+        |  userid  |  integer  |  User id of the message author  |
+        +----------+-----------+---------------------------------+
+        |  chat    |  string   |  Content of the message         |
+        +----------+-----------+---------------------------------+
+
+    Example:
+
+    .. code:: js
+
+        function on_player_say() {
+            var entity = Entity.GetEntityFromUserID(Event.GetInt("userid"));
+            var message = Event.GetString("chat");
+            Cheat.Print(Entity.GetName(entity) + " said " + message);
+        }
+        Cheat.RegisterCallback("player_say", "on_player_say")
