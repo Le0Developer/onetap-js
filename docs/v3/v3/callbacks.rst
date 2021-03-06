@@ -63,29 +63,29 @@ Cheat events which use :js:mod:`Event` to distribute their settings.
 
     Structure:
 
-        +----------------+-----------+-----------------------------------------+
-        |  Name          |  Type     |  Description                            |
-        +================+===========+=========================================+
-        |  exploit       |  integer  |  0 = no dt, 1 = not charged dt, 2 = dt  |
-        +----------------+-----------+-----------------------------------------+
-        |  target_index  |  integer  |  Entityindex of the target              |
-        +----------------+-----------+-----------------------------------------+
-        |  hitchance     |  integer  |  Hitchance of the shot  (0-100)         |
-        +----------------+-----------+-----------------------------------------+
-        |  safepoint     |  integer  |  Targetting a safepoint                 |
-        +----------------+-----------+-----------------------------------------+
-        |  hitbox        |  integer  |  Targetted Hitboxindex                  |
-        +----------------+-----------+-----------------------------------------+
+        +----------------+-----------+--------------------------------------------------+
+        |  Name          |  Type     |  Description                                     |
+        +================+===========+==================================================+
+        |  exploit       |  integer  |  0 = no dt, 1 = 1st dt shot or hideshot, 2 = dt  |
+        +----------------+-----------+--------------------------------------------------+
+        |  target_index  |  integer  |  Entityindex of the target                       |
+        +----------------+-----------+--------------------------------------------------+
+        |  hitchance     |  integer  |  Hitchance of the shot  (0-100)                  |
+        +----------------+-----------+--------------------------------------------------+
+        |  safepoint     |  integer  |  Targetting a safepoint                          |
+        +----------------+-----------+--------------------------------------------------+
+        |  hitbox        |  integer  |  Targetted Hitboxindex                           |
+        +----------------+-----------+--------------------------------------------------+
 
     Example:
 
 
     .. code:: js
 
-        var names = ["disabled", "not charged", "used"]
+        var names = ["disabled", "1st dt shot", "2nd dt shot"]
         function on_ragebot_fire() {
             var exploit = Event.GetInt("exploit");
             var target = Event.GetInt("target_index");
-            Cheat.Print("ragebot shot at " + Entity.GetName(target) + ", doubletap was " + names[exploit] + "\n");
+            Cheat.Print("ragebot shot at " + Entity.GetName(target) + " (" + names[exploit] + ")\n");
         }
         Cheat.RegisterCallback("ragebot_fire", "on_ragebot_fire");
