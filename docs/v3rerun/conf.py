@@ -60,3 +60,6 @@ html_static_path = ['../_static']
 html_css_files = [
     'css/global.css',
 ]
+html_js_files = [
+    'js/track.js'  # check the file for more information about privacy
+]
