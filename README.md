@@ -4,6 +4,7 @@
 [![Discord](https://discord.com/api/guilds/756989147163656273/widget.png)](https://discord.gg/FCnK6xp)
 
 > The documentation and scripts have been moved to https://leodeveloper.pages.dev  
+> The source code of the new website is located [here](https://github.com/Le0Developer/website).  
 > There are inaccuracies with the documentation that have been fixed on the new website.
 
 **This project is unmaintained, but will stay online!**
