@@ -3,6 +3,11 @@
 
 [![Discord](https://discord.com/api/guilds/756989147163656273/widget.png)](https://discord.gg/FCnK6xp)
 
+> The documentation and scripts have been moved to https://leodeveloper.pages.dev  
+> There are inaccuracies with the documentation that have been fixed on the new website.
+
+**This project is unmaintained, but will stay online!**
+
 The documentation can be found [here](https://le0developer.github.io/onetap-js/en/master/).
 
 This repository contains my scripts for the CS:GO cheat onetap and various utilities.
